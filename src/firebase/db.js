@@ -24,5 +24,11 @@ const createUser = user => {
   })
 }
 
+const pushArr = (ref, key, val) => {
+  ref.update({
+    [key]: firebase.firestore.FieldValue.arrayUnion(val)
+  })
+}
+
 export default db
-export { createUser, getUserRef }
+export { createUser, getUserRef, pushArr }

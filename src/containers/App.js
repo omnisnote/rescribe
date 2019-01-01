@@ -6,6 +6,7 @@ import auth from "../firebase/auth"
 import Signup from "../routes/Signup"
 import Login from "../routes/Login"
 import User from "../routes/User"
+import Notes from "../routes/Notes"
 
 import Loading from "../components/Loading"
 
@@ -47,8 +48,10 @@ export default class App extends Component {
             {/* authed paths */}
             { this.state.ready ? (
               <Switch>
-                <Route exact path="/user" component={ User }/>    
-                <Redirect to="/user" />
+                <Route exact path="/user" component={ User }/>   
+                <Route exact path="/notes" component={ Notes }/>   
+
+                <Redirect to="/notes" />
               </Switch>      
             ) : <Loading /> }
           </Switch>
