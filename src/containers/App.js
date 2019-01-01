@@ -37,9 +37,12 @@ export default class App extends Component {
         <Router>
           <Switch>
             {/* public paths */}
-            <Route exact path="/signup" component={ Signup }/>
-            <Route exact path="/login" component={ Login }/>
-            { this.state.checked && !this.state.ready && <Redirect to="/dog" /> }
+            { !this.state.ready && ( <>
+              <Route exact path="/signup" component={ Signup }/>
+              <Route exact path="/login" component={ Login }/>
+              { this.state.checked && <Redirect to="/signup" /> }
+            </> )}
+            
 
             {/* authed paths */}
             { this.state.ready ? (

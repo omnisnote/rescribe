@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 
-import { createGoogleUser } from "../firebase/auth"
+import { authGoogleUser } from "../firebase/auth"
 import { createUser, getUserRef } from "../firebase/db"
 
 export default class Login extends Component {
@@ -9,8 +9,10 @@ export default class Login extends Component {
   handleLogin = async e => {
     e.preventDefault()
     try {
-      const user = createGoogleUser().then(res => {
-        createUser(res.user)
+      const user = authGoogleUser().then(res => {
+        
+
+        this.props.history.push("/user")
       })
     } catch (error) {
       alert(error)
