@@ -6,6 +6,8 @@ import auth from "../firebase/auth"
 import Signup from "../routes/Signup"
 import Login from "../routes/Login"
 
+import Loading from "../components/Loading"
+
 export default class App extends Component {
   constructor(props) {
     super(props)
@@ -32,7 +34,6 @@ export default class App extends Component {
       <div>
       {
         this.state.ready ? (
-          
           <Router className="app">
             <>
               <Switch>
@@ -44,7 +45,7 @@ export default class App extends Component {
             </>
           </Router>
   
-        ) : <p>Loading</p>
+        ) : <Loading />
       }
       </div>
 
