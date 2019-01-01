@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
-import auth, { createGoogleUser, createUserKey } from "../firebase/auth"
+import { createGoogleUser, createUserKey } from "../firebase/auth"
+import { createUser } from "../firebase/db"
 
 export default class Signup extends Component {
 
@@ -10,8 +11,7 @@ export default class Signup extends Component {
     try {
       const user = createGoogleUser().then(res => {
         console.log(res)
-        createUserKey(res.user.uid)
-        this.props.history.push("/")
+        createUser(res.user)
       });
     } catch (error) {
       alert(error)
