@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom"
+
 
 import { createGoogleUser } from "../firebase/auth"
 import { createUser, getUserRef } from "../firebase/db"
@@ -19,8 +21,9 @@ export default class Signup extends Component {
   render() {
     return (
       <>
+        <Link to="/login">login</Link>
         <h1>Signup</h1>
-        <button onClick={ e => this.handleSignup(e) }>test</button>
+        <button onClick={ e => this.handleSignup(e) }>click here to sign up</button>
       </>
     )
   }

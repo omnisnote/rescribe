@@ -1,6 +1,7 @@
 - [ ] figure out if the noscript stays
 - [ ] make firebase login work
 - [x] make firebase signup work
-- [ ] make firebase private routes work
+- [ ] make firebase signout functionality
+- [x] make firebase private routes work
 - [ ] make arrays work
 - [x] make user db entries

@@ -12,7 +12,6 @@ import Loading from "../components/Loading"
 export default class App extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       ready: false,
       checked: false
@@ -21,7 +20,6 @@ export default class App extends Component {
 
   componentDidMount() {
     this.authObservable = auth.onAuthStateChanged(user => {
-      console.log(user)
       this.setState({ 
         ready: !!user,
         checked: true
@@ -37,21 +35,20 @@ export default class App extends Component {
     return (
       <div className="app">
         <Router>
-          <>
-            <Switch>
-              <Route exact path="/signup" component={ Signup }/>
-              <Route exact path="/login" component={ Login }/>
-              { this.state.checked && !this.state.ready && 
-                <Redirect to="/dog" /> 
-              }
-              { this.state.ready ? (
-                <Switch>
-                  <Route exact path="/user" component={ User }/>    
-                  <Redirect to="/user" />
-                </Switch>      
-              ) : <Loading /> }
-            </Switch>
-          </>
+          <Switch>
+            {/* public paths */}
+            <Route exact path="/signup" component={ Signup }/>
+            <Route exact path="/login" component={ Login }/>
+            { this.state.checked && !this.state.ready && <Redirect to="/dog" /> }
+
+            {/* authed paths */}
+            { this.state.ready ? (
+              <Switch>
+                <Route exact path="/user" component={ User }/>    
+                <Redirect to="/user" />
+              </Switch>      
+            ) : <Loading /> }
+          </Switch>
         </Router>
       </div>
 
