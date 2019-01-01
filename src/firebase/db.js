@@ -10,7 +10,6 @@ db.settings({
 
 
 const createUser = user => {
-  console.log(getUserRef())
   db.collection("users").doc(user.uid).set({
     displayName: user.displayName,
     uid: user.uid,
@@ -28,16 +27,10 @@ const createUser = user => {
   // })
 }
 
-// const getUserData = ref => {
-//   if(!auth.currentUser) return null
-//   console.log(db.collection("users").doc(auth.currentUser.uid).get())
-// }
-
 const getUserRef = () => {
   return db.collection("users").doc(auth.currentUser.uid)
 }
 
-window.userRef = getUserRef
 
 export default db
 export { createUser, getUserRef }
