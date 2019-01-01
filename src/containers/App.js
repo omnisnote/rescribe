@@ -13,14 +13,18 @@ export default class App extends Component {
     super(props)
 
     this.state = {
-      ready: false
+      ready: false,
+      authed: false
     }
   }
 
   componentDidMount() {
     this.authObservable = auth.onAuthStateChanged(user => {
       console.log(user)
-      this.setState({ ready: !!user })
+      this.setState({ 
+        ready: !!user,
+        authed: !user
+      })
     })
   }
 
@@ -31,22 +35,24 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-      {
-        this.state.ready ? (
-          <Router className="app">
-            <>
-              <Switch>
-                <Route exact path="/signup" component={ Signup }/>
-                <Route exact path="/login" component={ Login }/>
-  
-                <Redirect to="/login" />
-              </Switch>
-            </>
-          </Router>
-  
-        ) : <Loading />
-      }
+      <div className="app">
+        <Router>
+          <>
+          {
+            this.state.ready ? (
+                  <Switch>
+                    <Route exact path="/signup" component={ Signup }/>
+                    <Route exact path="/login" component={ Login }/>
+      
+                    <Redirect to="/login" />
+                  </Switch>      
+            ) : <Loading />
+          }
+          {
+            this.state.authed && !this.state.ready && <Redirect to="/dog" />
+          }
+          </>
+        </Router>
       </div>
 
     )
