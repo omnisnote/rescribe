@@ -5,6 +5,7 @@ import auth from "../firebase/auth"
 
 import Signup from "../routes/Signup"
 import Login from "../routes/Login"
+import User from "../routes/User"
 
 import Loading from "../components/Loading"
 
@@ -14,7 +15,7 @@ export default class App extends Component {
 
     this.state = {
       ready: false,
-      authed: false
+      checked: false
     }
   }
 
@@ -23,14 +24,13 @@ export default class App extends Component {
       console.log(user)
       this.setState({ 
         ready: !!user,
-        authed: !user
+        checked: true
       })
     })
   }
 
   componentWillUnmount() {
     this.authObservable = null
-    this.userObservable = null
   }
 
   render() {
@@ -38,19 +38,19 @@ export default class App extends Component {
       <div className="app">
         <Router>
           <>
-          {
-            this.state.ready ? (
-                  <Switch>
-                    <Route exact path="/signup" component={ Signup }/>
-                    <Route exact path="/login" component={ Login }/>
-      
-                    <Redirect to="/login" />
-                  </Switch>      
-            ) : <Loading />
-          }
-          {
-            this.state.authed && !this.state.ready && <Redirect to="/dog" />
-          }
+            <Switch>
+              <Route exact path="/signup" component={ Signup }/>
+              <Route exact path="/login" component={ Login }/>
+              { this.state.checked && !this.state.ready && 
+                <Redirect to="/dog" /> 
+              }
+              { this.state.ready ? (
+                <Switch>
+                  <Route exact path="/user" component={ User }/>    
+                  <Redirect to="/user" />
+                </Switch>      
+              ) : <Loading /> }
+            </Switch>
           </>
         </Router>
       </div>
