@@ -39,7 +39,11 @@ export default class Notes extends Component {
       <>
         <h1>Notes</h1>
         { this.state.notes ? this.state.notes.map((note, i) => (
-          <div key={i}><h1>{note.title}</h1></div>
+          <div key={i}>
+            <Link to={"/note/" + note.uid}>
+              <h1>{note.title}</h1>
+            </Link>
+          </div>
         )) : <p>loading notes</p> }
 
         <button onClick={ e => this.addNote(e) }>add note</button>

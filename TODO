@@ -3,6 +3,8 @@
 - [x] make firebase signup work
 - [x] make firebase signout functionality
 - [x] make firebase private routes work
-- [ ] make arrays work
+- [x] make arrays work
+- [ ] make deleting array items work
 - [ ] get username/password login working
 - [x] make user db entries
+- [ ] make a store for root user dataa
