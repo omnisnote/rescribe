@@ -7,13 +7,16 @@ export default class Note extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      ref: getUserRef().collection("notes").doc(props.match.params.uid),
       note: null
     }
   }
 
+  getNotesDoc() {
+    return getUserRef().collection("notes").doc(this.props.match.params.uid)
+  }
+
   componentDidMount() {
-    this.noteObservable = this.state.ref.onSnapshot(snapshot => {
+    this.noteObservable = this.getNotesDoc().onSnapshot(snapshot => {
       this.setState({
         note: snapshot.data()
       })
@@ -23,7 +26,8 @@ export default class Note extends Component {
   componentWillUnmount() {
     this.noteObservable = null
 
-    this.state.ref.set({
+    //TODO: figure out a workaround for this being in the state thing
+    this.getNotesDoc().set({
       content: document.getElementById("h").value
     })
   }
@@ -31,7 +35,7 @@ export default class Note extends Component {
   render() {
     return (
       <>
-        <Link to="/notes" onClick={ e => this.save(e) }>go back</Link>
+        <Link to="/notes">go back</Link>
         <h1>Note</h1>
         
         { this.state.note && (

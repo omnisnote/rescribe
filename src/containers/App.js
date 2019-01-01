@@ -16,7 +16,8 @@ export default class App extends Component {
     super(props)
     this.state = {
       ready: false,
-      checked: false
+      checked: false,
+      users
     }
   }
 

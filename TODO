@@ -8,4 +8,8 @@
 - [ ] get username/password login working
 - [x] make user db entries
 - [ ] make a store for root user data
-- [ ] figure out autosaving?
+- [x] figure out autosaving?
+- [ ] make a loading thing
+- [ ] use ant.design
+- [ ] make all loading use the loading component
+- [ ] think about using redux or flux or maybe just make a hacky store
