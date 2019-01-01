@@ -7,4 +7,5 @@
 - [ ] make deleting array items work
 - [ ] get username/password login working
 - [x] make user db entries
-- [ ] make a store for root user dataa
+- [ ] make a store for root user data
+- [ ] figure out autosaving?

@@ -22,9 +22,7 @@ export default class Note extends Component {
 
   componentWillUnmount() {
     this.noteObservable = null
-  }
 
-  save(e) {
     this.state.ref.set({
       content: document.getElementById("h").value
     })
@@ -33,11 +31,12 @@ export default class Note extends Component {
   render() {
     return (
       <>
+        <Link to="/notes" onClick={ e => this.save(e) }>go back</Link>
         <h1>Note</h1>
+        
         { this.state.note && (
           <textarea id="h">{ this.state.note.content }</textarea>
         ) }
-        <button onClick={ e => this.save(e) }>save</button>
       </>
     )
   }
