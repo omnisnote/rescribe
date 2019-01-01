@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom"
 
-import Signup from "./Signup"
-import Login from "./Login"
+import Signup from "../routes/Signup"
+import Login from "../routes/Login"
 
 export default class App extends Component {
   render() {
