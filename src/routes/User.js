@@ -27,12 +27,6 @@ export default class User extends Component {
     auth.signOut()
   }
 
-  push() {
-    getUserRef().set({
-      [Math.random() + ""]: "heck"
-    })
-  }
-
   render() {
     return (
       <>
@@ -40,7 +34,6 @@ export default class User extends Component {
         <p>{ JSON.stringify(this.state.data) }</p>
 
         <button onClick={ e => this.signOut(e) }>sign out</button>
-        <button onClick={ e => this.push(e) }>add thing to test</button>
       </>
     )
   }
