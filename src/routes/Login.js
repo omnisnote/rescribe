@@ -10,8 +10,7 @@ export default class Login extends Component {
     e.preventDefault()
     try {
       const user = authGoogleUser().then(res => {
-        
-
+        createUser(res.user)
         this.props.history.push("/user")
       })
     } catch (error) {
