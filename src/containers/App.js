@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-d
 import UserContext from "../context"
 
 import auth from "../firebase/auth"
+import { getUserRef } from "../firebase/db"
 
 import Signup from "../routes/Signup"
 import Login from "../routes/Login"
@@ -13,38 +14,51 @@ import Note from '../routes/Note'
 
 import Loading from "../components/Loading"
 
-
-
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      ready: false,
-      checked: false,
+      user: {
+        ready: false,
+        checked: false,
+      }
     }
   }
 
   componentDidMount() {
     this.authObservable = auth.onAuthStateChanged(user => {
       this.setState({ 
-        ready: !!user,
-        checked: true
+        user: {
+          ready: !!user,
+          checked: true
+        }
       })
+      if(user) {
+        this.userObservable = getUserRef().onSnapshot(snapshot => {
+          this.setState({
+            user: {
+              ...this.state.user,
+              ...snapshot.data()
+            }
+          })
+        })
+      }
     })
   }
 
   componentWillUnmount() {
     this.authObservable = null
+    this.userObservable = null
   }
 
   render() {
     return (
       <div className="app">
-        <UserContext.Provider value={{ hi: "hi" }}>
+        <UserContext.Provider value={ this.state.user }>
           <Router>
             <Switch>
               {/* public paths */}
-              { !this.state.ready && ( <>
+              { !this.state.user.ready && ( <>
                 <Route exact path="/signup" component={ Signup }/>
                 <Route exact path="/login" component={ Login }/>
                 { this.state.checked && <Redirect to="/signup" /> }
@@ -52,7 +66,7 @@ export default class App extends Component {
               
 
               {/* authed paths */}
-              { this.state.ready ? (
+              { this.state.user.ready ? (
                 <Switch>
                   <Route exact path="/user" component={ User }/>   
                   <Route exact path="/notes" component={ Notes }/>   

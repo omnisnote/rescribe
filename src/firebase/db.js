@@ -12,6 +12,10 @@ const getUserRef = () => {
   return db.collection("users").doc(auth.currentUser.uid)
 }
 
+const getNote = uid => {
+  
+}
+
 const createUser = user => {
   getUserRef().get().then(res => {
     if(!res.exists) {

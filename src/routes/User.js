@@ -11,18 +11,6 @@ export default class User extends Component {
     }
   }
 
-  componentDidMount() {
-    this.userObservable = getUserRef().onSnapshot(snapshot => {
-      this.setState({
-        data: snapshot.data()
-      })
-    })
-  }
-
-  componentWillUnmount() {
-    this.userObservable = null
-  }
-
   signOut() {
     auth.signOut()
   }
@@ -38,8 +26,6 @@ export default class User extends Component {
     return (
       <>
         <h1>user</h1>
-        <p>{ JSON.stringify(this.state.data) }</p>
-
         <button onClick={ e => this.signOut(e) }>sign out</button>
         <button onClick={ e => this.push(e) }>add thing to test</button>
       </>

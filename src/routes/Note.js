@@ -41,7 +41,7 @@ export default class Note extends Component {
       <>
         <Link to="/notes">go back</Link>
         <h1>Note</h1>
-        <p>{ this.context.hi }</p>
+        <p>this.context</p>
         { this.state.note && (
           <textarea id="h">{ this.state.note.content }</textarea>
         ) }
