@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom"
 
+import UserContext from "../context"
+
 import auth from "../firebase/auth"
 
 import Signup from "../routes/Signup"
@@ -11,13 +13,14 @@ import Note from '../routes/Note'
 
 import Loading from "../components/Loading"
 
+
+
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       ready: false,
       checked: false,
-      users
     }
   }
 
@@ -37,28 +40,30 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        <Router>
-          <Switch>
-            {/* public paths */}
-            { !this.state.ready && ( <>
-              <Route exact path="/signup" component={ Signup }/>
-              <Route exact path="/login" component={ Login }/>
-              { this.state.checked && <Redirect to="/signup" /> }
-            </> )}
-            
+        <UserContext.Provider value={{ hi: "hi" }}>
+          <Router>
+            <Switch>
+              {/* public paths */}
+              { !this.state.ready && ( <>
+                <Route exact path="/signup" component={ Signup }/>
+                <Route exact path="/login" component={ Login }/>
+                { this.state.checked && <Redirect to="/signup" /> }
+              </> )}
+              
 
-            {/* authed paths */}
-            { this.state.ready ? (
-              <Switch>
-                <Route exact path="/user" component={ User }/>   
-                <Route exact path="/notes" component={ Notes }/>   
-                <Route exact path="/note/:uid" component={ Note }/>   
+              {/* authed paths */}
+              { this.state.ready ? (
+                <Switch>
+                  <Route exact path="/user" component={ User }/>   
+                  <Route exact path="/notes" component={ Notes }/>   
+                  <Route exact path="/note/:uid" component={ Note }/>   
 
-                <Redirect to="/notes" />
-              </Switch>      
-            ) : <Loading /> }
-          </Switch>
-        </Router>
+                  <Redirect to="/notes" />
+                </Switch>      
+              ) : <Loading /> }
+            </Switch>
+          </Router>
+        </UserContext.Provider>
       </div>
 
     )

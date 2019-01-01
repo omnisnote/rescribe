@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 
 import { pushArr, getUserRef } from "../firebase/db"
 
+import UserContext from "../context"
+
 export default class Note extends Component {
   constructor(props) {
     super(props)
@@ -10,6 +12,8 @@ export default class Note extends Component {
       note: null
     }
   }
+
+  static contextType = UserContext
 
   getNotesDoc() {
     return getUserRef().collection("notes").doc(this.props.match.params.uid)
@@ -37,7 +41,7 @@ export default class Note extends Component {
       <>
         <Link to="/notes">go back</Link>
         <h1>Note</h1>
-        
+        <p>{ this.context.hi }</p>
         { this.state.note && (
           <textarea id="h">{ this.state.note.content }</textarea>
         ) }

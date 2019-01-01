@@ -12,4 +12,5 @@
 - [ ] make a loading thing
 - [ ] use ant.design
 - [ ] make all loading use the loading component
-- [ ] think about using redux or flux or maybe just make a hacky store
+- [x] think about using redux or flux or maybe just make a hacky store
+- [ ] figure out react context api
