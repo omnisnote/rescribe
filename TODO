@@ -1,5 +1,5 @@
 - [ ] figure out if the noscript stays
-- [ ] make firebase login work
+- [x] make firebase login work
 - [x] make firebase signup work
 - [x] make firebase signout functionality
 - [x] make firebase private routes work
