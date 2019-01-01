@@ -24,8 +24,13 @@ export default class Notes extends Component {
   }
 
   addNote(e) {
-    pushArr(getUserRef(), "notes", {
-      title: "heck" + Math.random()
+    getUserRef().collection("notes").add({
+      content: "hello!"
+    }).then(ref => {
+      pushArr(getUserRef(), "notes", {
+        title: "new document",
+        uid: ref.id
+      })
     })
   }
 
