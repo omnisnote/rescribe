@@ -21,6 +21,8 @@ export default class Notes extends Component {
         ["notes." + ref.id]: {
           title: "new document",
         }
+      }).then(res => { //TODO: make this not bad
+        this.props.history.push("/note/" + ref.id)
       })
     })
   }
@@ -29,15 +31,16 @@ export default class Notes extends Component {
     return (
       <>
         <h1>Notes</h1>
-        { this.context.notes ? transformToArr(this.context.notes).map((note, i) => (
-          <div key={i}>
-            <Link to={"/note/" + note.uid}>
-              <p>{ note.title }</p>
+        <div className="notes">
+          { this.context.notes ? transformToArr(this.context.notes).map((note, i) => (
+            <Link to={"/note/" + note.uid} key={i}>
+              <div className="note">
+                { note.title }
+              </div>
             </Link>
-          </div>
-        )) : <p>loading notes</p> }
-
-        <Button onClick={ e => this.addNote(e) }>add note</Button>
+          )) : <p>loading notes</p> }
+        </div>        
+        <Button type="primary" shape="circle" icon="plus" onClick={ e => this.addNote(e) } />
       </>
     )
   }
