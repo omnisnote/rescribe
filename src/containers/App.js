@@ -61,7 +61,7 @@ export default class App extends Component {
               { !this.state.user.ready && ( <>
                 <Route exact path="/signup" component={ Signup }/>
                 <Route exact path="/login" component={ Login }/>
-                { this.state.checked && <Redirect to="/signup" /> }
+                { this.state.user.checked && <Redirect to="/signup" /> }
               </> )}
               
 
