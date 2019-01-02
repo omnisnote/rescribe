@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 
-import { getUserRef, getNote, setMeta } from "../firebase/db"
+import { getUserRef, setMeta } from "../firebase/db"
 
 import UserContext from "../context"
 import ConfirmInput from "../components/ConfirmInput"
@@ -40,7 +40,7 @@ export default class Note extends Component {
 
   getMeta() {
     //TODO: store this in state or something
-    return getNote(this.context.notes, this.state.uid)
+    return this.context.notes[this.state.uid]
   }
 
   setTitle(e) {

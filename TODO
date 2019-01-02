@@ -7,7 +7,7 @@
 - [ ] make deleting array items work
 - [ ] get username/password login working
 - [x] make user db entries
-- [ ] make a store for root user data
+- [x] make a store for root user data
 - [x] figure out autosaving?
 - [ ] make a loading thing
 - [ ] use ant.design

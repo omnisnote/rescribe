@@ -12,12 +12,6 @@ const getUserRef = () => {
   return db.collection("users").doc(auth.currentUser.uid)
 }
 
-const getNote = (notes, uid) => {
-  let ret = null
-  notes.forEach(note => { if(note.uid === uid) ret = note })
-  return ret
-}
-
 const createUser = user => {
   getUserRef().get().then(res => {
     if(!res.exists) {
@@ -30,25 +24,11 @@ const createUser = user => {
   })
 }
 
-const pushArr = (ref, key, val) => {
-  ref.update({
-    [key]: firebase.firestore.FieldValue.arrayUnion(val)
-  })
-}
-
-const modArr = (ref, key, val) => {
-  ref.update({
-    [key]: firebase.firestore.FieldValue.arrayUnion(val)
-  })
+const setMeta = (uid, data) => {
+  getUserRef().update("notes." + uid, data)
 }
 
 const transformToArr = (data) => Object.entries(data).map(entry => ({ uid: entry[0], ...entry[1] }))
 
-const setMeta = (uid, data) => {
-  getUserRef().where("notes.uid", "array-contains", uid).update("notes", data)
-}
-
-window.getUserRef = getUserRef
-
 export default db
-export { createUser, getUserRef, pushArr, getNote, setMeta, transformToArr }
+export { createUser, getUserRef, transformToArr, setMeta }
