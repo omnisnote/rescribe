@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
+import { Button } from 'antd'
 
 import UserContext from "../context"
 
@@ -36,7 +37,7 @@ export default class Notes extends Component {
           </div>
         )) : <p>loading notes</p> }
 
-        <button onClick={ e => this.addNote(e) }>add note</button>
+        <Button onClick={ e => this.addNote(e) }>add note</Button>
       </>
     )
   }

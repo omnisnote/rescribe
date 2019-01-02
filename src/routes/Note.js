@@ -47,7 +47,6 @@ export default class Note extends Component {
     return (
       <>
         <Link to="/notes">go back</Link>
-        <h1>Note</h1>
         { this.context.notes && 
           <ConfirmInput 
             defaultValue={ this.getMeta().title } 
