@@ -36,5 +36,19 @@ const pushArr = (ref, key, val) => {
   })
 }
 
+const modArr = (ref, key, val) => {
+  ref.update({
+    [key]: firebase.firestore.FieldValue.arrayUnion(val)
+  })
+}
+
+const transformToArr = (data) => Object.entries(data).map(entry => ({ uid: entry[0], ...entry[1] }))
+
+const setMeta = (uid, data) => {
+  getUserRef().where("notes.uid", "array-contains", uid).update("notes", data)
+}
+
+window.getUserRef = getUserRef
+
 export default db
-export { createUser, getUserRef, pushArr, getNote }
+export { createUser, getUserRef, pushArr, getNote, setMeta, transformToArr }

@@ -14,3 +14,4 @@
 - [ ] make all loading use the loading component
 - [x] think about using redux or flux or maybe just make a hacky store
 - [x] figure out react context api
+- [ ] make large amounts of notes work

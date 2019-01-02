@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 
-import { getUserRef, getNote } from "../firebase/db"
+import { getUserRef, getNote, setMeta } from "../firebase/db"
 
 import UserContext from "../context"
+import ConfirmInput from "../components/ConfirmInput"
 
 export default class Note extends Component {
   constructor(props) {
@@ -43,7 +44,9 @@ export default class Note extends Component {
   }
 
   setTitle(e) {
-    
+    setMeta(this.state.uid, {
+      title: e
+    })
   }
 
   render() {
@@ -51,7 +54,11 @@ export default class Note extends Component {
       <>
         <Link to="/notes">go back</Link>
         <h1>Note</h1>
-        { this.context.notes && <p>{ this.getMeta().title }</p> }
+        { this.context.notes && 
+          <ConfirmInput 
+            defaultValue={ this.getMeta().title } 
+            onChange={ e => this.setTitle(e) }/> 
+        }
         { this.state.note && (
           <textarea id="h">{ this.state.note.content }</textarea>
         ) }

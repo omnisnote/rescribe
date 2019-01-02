@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 import UserContext from "../context"
 
-import { pushArr, getUserRef } from "../firebase/db"
+import { transformToArr, getUserRef } from "../firebase/db"
 
 export default class Notes extends Component {
   constructor(props) {
@@ -16,9 +16,10 @@ export default class Notes extends Component {
     getUserRef().collection("notes").add({
       content: "hello!"
     }).then(ref => {
-      pushArr(getUserRef(), "notes", {
-        title: "new document",
-        uid: ref.id
+      getUserRef().update({
+        ["notes." + ref.id]: {
+          title: "new document",
+        }
       })
     })
   }
@@ -27,10 +28,10 @@ export default class Notes extends Component {
     return (
       <>
         <h1>Notes</h1>
-        { this.context.notes ? this.context.notes.map((note, i) => (
+        { this.context.notes ? transformToArr(this.context.notes).map((note, i) => (
           <div key={i}>
             <Link to={"/note/" + note.uid}>
-              <p>{note.title}</p>
+              <p>{ note.title }</p>
             </Link>
           </div>
         )) : <p>loading notes</p> }
