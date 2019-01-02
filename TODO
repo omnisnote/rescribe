@@ -15,3 +15,8 @@
 - [x] think about using redux or flux or maybe just make a hacky store
 - [x] figure out react context api
 - [ ] make large amounts of notes work
+- [ ] go through and clean up everything
+- [ ] add codemirror
+- [ ] create some kind of search functionality
+- [ ] create tag system
+- [ ] STYLES!

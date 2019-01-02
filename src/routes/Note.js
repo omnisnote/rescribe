@@ -43,12 +43,6 @@ export default class Note extends Component {
     return this.context.notes[this.state.uid]
   }
 
-  setTitle(e) {
-    setMeta(this.state.uid, {
-      title: e
-    })
-  }
-
   render() {
     return (
       <>
@@ -57,7 +51,9 @@ export default class Note extends Component {
         { this.context.notes && 
           <ConfirmInput 
             defaultValue={ this.getMeta().title } 
-            onChange={ e => this.setTitle(e) }/> 
+            onChange={ e => setMeta(this.state.uid, {
+              title: e
+            }) }/> 
         }
         { this.state.note && (
           <textarea id="h">{ this.state.note.content }</textarea>
