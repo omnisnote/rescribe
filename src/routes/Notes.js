@@ -30,7 +30,7 @@ export default class Notes extends Component {
         { this.context.notes ? this.context.notes.map((note, i) => (
           <div key={i}>
             <Link to={"/note/" + note.uid}>
-              <h1>{note.title}</h1>
+              <p>{note.title}</p>
             </Link>
           </div>
         )) : <p>loading notes</p> }

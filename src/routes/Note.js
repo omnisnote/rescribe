@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 
-import { pushArr, getUserRef } from "../firebase/db"
+import { getUserRef, getNote } from "../firebase/db"
 
 import UserContext from "../context"
 
@@ -9,7 +9,8 @@ export default class Note extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      note: null
+      note: null,
+      uid: props.match.params.uid,
     }
   }
 
@@ -36,12 +37,21 @@ export default class Note extends Component {
     })
   }
 
+  getMeta() {
+    //TODO: store this in state or something
+    return getNote(this.context.notes, this.state.uid)
+  }
+
+  setTitle(e) {
+    
+  }
+
   render() {
     return (
       <>
         <Link to="/notes">go back</Link>
         <h1>Note</h1>
-        <p>this.context</p>
+        { this.context.notes && <p>{ this.getMeta().title }</p> }
         { this.state.note && (
           <textarea id="h">{ this.state.note.content }</textarea>
         ) }

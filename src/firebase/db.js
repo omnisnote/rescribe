@@ -12,8 +12,10 @@ const getUserRef = () => {
   return db.collection("users").doc(auth.currentUser.uid)
 }
 
-const getNote = uid => {
-  
+const getNote = (notes, uid) => {
+  let ret = null
+  notes.forEach(note => { if(note.uid === uid) ret = note })
+  return ret
 }
 
 const createUser = user => {
@@ -35,4 +37,4 @@ const pushArr = (ref, key, val) => {
 }
 
 export default db
-export { createUser, getUserRef, pushArr }
+export { createUser, getUserRef, pushArr, getNote }
