@@ -63,8 +63,6 @@ export default class App extends Component {
                 <Route exact path="/login" component={ Login }/>
                 { this.state.user.checked && <Redirect to="/signup" /> }
               </> )}
-              
-
               {/* authed paths */}
               { this.state.user.ready ? (
                 <Switch>

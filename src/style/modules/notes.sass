@@ -1,7 +1,11 @@
 .notes
   display: flex
-  align-items: center
+  justify-content: center
   flex-wrap: wrap
+  max-width: 1080px
+  width: 95%
+  margin: 0 auto
+  padding-top: 48px
   .note
     background-color: darken($bg, 5%)
     margin: 8px
@@ -14,3 +18,8 @@
     &:hover
       box-shadow: 0 8px 32px -4px rgba(#000, 0.2)
       color: rgba(#fff, 0.95)
+
+.add
+  position: fixed
+  right: 16px
+  bottom: 16px

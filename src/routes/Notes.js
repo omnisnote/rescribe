@@ -6,6 +6,8 @@ import UserContext from "../context"
 
 import { transformToArr, getUserRef } from "../firebase/db"
 
+import NewNote from "../containers/NewNote"
+
 export default class Notes extends Component {
   constructor(props) {
     super(props)
@@ -30,8 +32,8 @@ export default class Notes extends Component {
   render() {
     return (
       <>
-        <h1>Notes</h1>
         <div className="notes">
+          <NewNote />
           { this.context.notes ? transformToArr(this.context.notes).map((note, i) => (
             <Link to={"/note/" + note.uid} key={i}>
               <div className="note">
@@ -40,7 +42,7 @@ export default class Notes extends Component {
             </Link>
           )) : <p>loading notes</p> }
         </div>        
-        <Button type="primary" shape="circle" icon="plus" onClick={ e => this.addNote(e) } />
+        <Button className="add" type="primary" size="large" shape="circle" icon="plus" onClick={ e => this.addNote(e) } />
       </>
     )
   }
