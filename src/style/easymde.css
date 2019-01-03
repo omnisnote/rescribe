@@ -24,19 +24,6 @@
   background-color:#f7f7f7;
   white-space:nowrap
 }
-.CodeMirror-linenumber{
-  padding:0 3px 0 5px;
-  min-width:20px;
-  text-align:right;
-  color:#999;
-  white-space:nowrap
-}
-.CodeMirror-guttermarker{
-  color:#000
-}
-.CodeMirror-guttermarker-subtle{
-  color:#999
-}
 .CodeMirror-cursor{
   border-left:1px solid #000;
   border-right:none;
@@ -44,11 +31,6 @@
 }
 .CodeMirror div.CodeMirror-secondarycursor{
   border-left:1px solid silver
-}
-.cm-fat-cursor .CodeMirror-cursor{
-  width:auto;
-  border:0!important;
-  background:#7e7
 }
 .cm-fat-cursor div.CodeMirror-cursors{
   z-index:1
@@ -80,22 +62,6 @@
   display:inline-block;
   text-decoration:inherit
 }
-.CodeMirror-ruler{
-  border-left:1px solid #ccc;
-  position:absolute
-}
-.cm-s-default .cm-header{
-  color:#00f
-}
-.cm-s-default .cm-quote{
-  color:#090
-}
-.cm-negative{
-  color:#d44
-}
-.cm-positive{
-  color:#292
-}
 .cm-header,.cm-strong{
   font-weight:700
 }
@@ -108,83 +74,17 @@
 .cm-strikethrough{
   text-decoration:line-through
 }
-.cm-s-default .cm-keyword{
-  color:#708
-}
-.cm-s-default .cm-atom{
-  color:#219
-}
-.cm-s-default .cm-number{
-  color:#164
-}
-.cm-s-default .cm-def{
-  color:#00f
-}
-.cm-s-default .cm-variable-2{
-  color:#05a
-}
-.cm-s-default .cm-variable-3{
-  color:#085
-}
-.cm-s-default .cm-comment{
-  color:#a50
-}
-.cm-s-default .cm-string{
-  color:#a11
-}
-.cm-s-default .cm-string-2{
-  color:#f50
-}
-.cm-s-default .cm-meta,.cm-s-default .cm-qualifier{
-  color:#555
-}
-.cm-s-default .cm-builtin{
-  color:#30a
-}
-.cm-s-default .cm-bracket{
-  color:#997
-}
-.cm-s-default .cm-tag{
-  color:#170
-}
-.cm-s-default .cm-attribute{
-  color:#00c
-}
-.cm-s-default .cm-hr{
-  color:#999
-}
 
 .cm-hr:after {
   content: "";
   position: absolute;
   top: calc(50% + 1px);
   left: 0;
-  background-color: #fafafa;
+  background-color: #cccccc;
   height: 1px;
   width: 100%;
 }
 
-.cm-s-default .cm-link{
-  color:#00c
-}
-.cm-invalidchar,.cm-s-default .cm-error{
-  color:red
-}
-.CodeMirror-composing{
-  border-bottom:2px solid
-}
-div.CodeMirror span.CodeMirror-matchingbracket{
-  color:#0f0
-}
-div.CodeMirror span.CodeMirror-nonmatchingbracket{
-  color:#f22
-}
-.CodeMirror-matchingtag{
-  background:rgba(255,150,0,.3)
-}
-.CodeMirror-activeline-background{
-  background:#e8f2ff
-}
 .CodeMirror{
   position:relative;
   overflow:hidden;
