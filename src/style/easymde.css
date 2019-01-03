@@ -326,15 +326,6 @@ span.CodeMirror-selectedtext{
   border:1px solid #ddd;
   padding:5px
 }
-.CodeMirror .CodeMirror-code .cm-tag{
-  color:#63a35c
-}
-.CodeMirror .CodeMirror-code .cm-attribute{
-  color:#795da3
-}
-.CodeMirror .CodeMirror-code .cm-string{
-  color:#183691
-}
 .CodeMirror .CodeMirror-selected{
   background: rgba(179,127,235, 0.2)
 }
@@ -367,6 +358,12 @@ span.CodeMirror-selectedtext{
 .CodeMirror .CodeMirror-code .cm-strikethrough{
   text-decoration:line-through
 }
+
+.CodeMirror .CodeMirror-code .cm-quote.cm-formatting {
+  border-left: 4px solid #000;
+  padding-left: 4px;
+}
+
 .CodeMirror .CodeMirror-placeholder{
   opacity:.5
 }

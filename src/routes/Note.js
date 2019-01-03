@@ -55,7 +55,9 @@ export default class Note extends Component {
             }) }/> 
         }
         { this.state.note && (
-          <Editor content={ this.state.note.content } />
+          <div className="editor">
+            <Editor content={ this.state.note.content } />
+          </div>
         ) }
       </div>
     )

@@ -17,6 +17,7 @@ export default class Editor extends Component {
       parsingConfig: {
         strikethrough: true
       },
+      status: false,
       autofocus: true,
       placeholder: "write something"
     })
