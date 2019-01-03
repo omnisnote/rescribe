@@ -5,6 +5,7 @@ import { getUserRef, setMeta } from "../firebase/db"
 
 import UserContext from "../context"
 import ConfirmInput from "../components/ConfirmInput"
+import Editor from "../components/Editor"
 
 export default class Note extends Component {
   constructor(props) {
@@ -54,7 +55,7 @@ export default class Note extends Component {
             }) }/> 
         }
         { this.state.note && (
-          <textarea id="h">{ this.state.note.content }</textarea>
+          <Editor content={ this.state.note.content } />
         ) }
       </div>
     )
