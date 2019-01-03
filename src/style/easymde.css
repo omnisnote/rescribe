@@ -4,6 +4,7 @@
  * @link https://github.com/NextStepWebs/simplemde-markdown-editor
  * @license MIT
  */
+
 /* modified by alexa! */
 
 .CodeMirror{
@@ -152,6 +153,17 @@
 .cm-s-default .cm-hr{
   color:#999
 }
+
+.cm-hr:after {
+  content: "";
+  position: absolute;
+  top: calc(50% + 1px);
+  left: 0;
+  background-color: #fafafa;
+  height: 1px;
+  width: 100%;
+}
+
 .cm-s-default .cm-link{
   color:#00c
 }

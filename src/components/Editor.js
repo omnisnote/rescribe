@@ -12,7 +12,12 @@ export default class Editor extends Component {
 
   componentDidMount() {
     this.state.mde = new EasyMDE({
-      element: this.editorEl 
+      element: this.editorEl,
+      toolbar: [],
+      parsingConfig: {
+        strikethrough: true
+      },
+      placeholder: "write something"
     })
   }
 
