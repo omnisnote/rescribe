@@ -45,10 +45,9 @@ export default class Note extends Component {
 
   render() {
     return (
-      <>
-        <Link to="/notes">go back</Link>
+      <div className="note-editor">
         { this.context.notes && 
-          <ConfirmInput 
+          <ConfirmInput className="title-input"
             defaultValue={ this.getMeta().title } 
             onChange={ e => setMeta(this.state.uid, {
               title: e
@@ -57,7 +56,7 @@ export default class Note extends Component {
         { this.state.note && (
           <textarea id="h">{ this.state.note.content }</textarea>
         ) }
-      </>
+      </div>
     )
   }
 

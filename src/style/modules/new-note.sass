@@ -11,9 +11,6 @@
   textarea
     background: transparent
     margin-bottom: 8px
-    &:hover, &:focus, &:active, &
-      outline: none
-      box-shadow: none
-      border: none
+    +resetFocus()
   button
     float: right
