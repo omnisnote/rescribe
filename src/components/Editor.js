@@ -19,8 +19,13 @@ export default class Editor extends Component {
       },
       status: false,
       autofocus: true,
+      initialValue: this.props.defaultValue,
       placeholder: "write something"
     })
+  }
+
+  componentWillUnmount() {
+    this.props.onUnmount && this.props.onUnmount({ value: this.state.mde.value() })
   }
 
   render() {

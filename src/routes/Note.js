@@ -6,6 +6,7 @@ import { getUserRef, setMeta } from "../firebase/db"
 import UserContext from "../context"
 import ConfirmInput from "../components/ConfirmInput"
 import Editor from "../components/Editor"
+import Sidebar from "../components/Sidebar"
 
 export default class Note extends Component {
   constructor(props) {
@@ -32,11 +33,6 @@ export default class Note extends Component {
 
   componentWillUnmount() {
     this.noteObservable = null
-
-    //TODO: figure out a workaround for this being in the state thing
-    this.getNotesDoc().set({
-      content: document.getElementById("h").value
-    })
   }
 
   getMeta() {
@@ -44,22 +40,31 @@ export default class Note extends Component {
     return this.context.notes[this.state.uid]
   }
 
+  saveDoc(e) {
+    this.getNotesDoc().set({
+      content: e.value
+    })
+  }
+
   render() {
     return (
-      <div className="note-editor">
-        { this.context.notes && 
-          <ConfirmInput className="title-input"
-            defaultValue={ this.getMeta().title } 
-            onChange={ e => setMeta(this.state.uid, {
-              title: e
-            }) }/> 
-        }
-        { this.state.note && (
-          <div className="editor">
-            <Editor content={ this.state.note.content } />
-          </div>
-        ) }
-      </div>
+      <>
+        <Sidebar />
+        <div className="note-editor">
+          { this.context.notes && 
+            <ConfirmInput className="title-input"
+              defaultValue={ this.getMeta().title } 
+              onChange={ e => setMeta(this.state.uid, {
+                title: e
+              }) }/> 
+          }
+          { this.state.note && (
+            <div className="editor">
+              <Editor defaultValue={ this.state.note.content } onUnmount={ e => this.saveDoc(e) } />
+            </div>
+          ) }
+        </div>
+      </>
     )
   }
 

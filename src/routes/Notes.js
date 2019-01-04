@@ -7,6 +7,7 @@ import UserContext from "../context"
 import { transformToArr, getUserRef } from "../firebase/db"
 
 import NewNote from "../containers/NewNote"
+import Sidebar from "../components/Sidebar"
 
 export default class Notes extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ export default class Notes extends Component {
   render() {
     return (
       <>
+        <Sidebar />
         <div className="notes">
           <NewNote />
           { this.context.notes ? transformToArr(this.context.notes).map((note, i) => (

@@ -35,5 +35,6 @@
 - [ ] configure mde
 - [ ] make folders
 - [ ] hall of thanks?
-- [ ] figure out how to make highlighting not depend on simplemde
+- [x] figure out how to make highlighting not depend on simplemde
 - [ ] figure out how to make full-width code blocks
+- [ ] make side bar
