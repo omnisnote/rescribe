@@ -11,6 +11,7 @@ import Login from "../routes/Login"
 import User from "../routes/User"
 import Notes from "../routes/Notes"
 import Note from '../routes/Note'
+import Settings from '../routes/Settings'
 
 import Loading from "../components/Loading"
 
@@ -69,6 +70,7 @@ export default class App extends Component {
                   <Route exact path="/user" component={ User }/>   
                   <Route exact path="/notes" component={ Notes }/>   
                   <Route exact path="/note/:uid" component={ Note }/>   
+                  <Route exact path="/settings" component={ Settings }/>   
 
                   <Redirect to="/notes" />
                 </Switch>      
