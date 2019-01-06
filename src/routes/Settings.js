@@ -4,6 +4,7 @@ import { getUserRef } from "../firebase/db"
 
 import UserContext from "../context"
 
+import Sidebar from "../components/Sidebar"
 
 export default class Settings extends Component {
   constructor(props) {
@@ -19,7 +20,10 @@ export default class Settings extends Component {
 
   render() {
     return (
-      <div><h1>settings</h1></div>
+      <>
+        <Sidebar />
+        <div><h1>settings</h1></div>
+      </>
     )
   }
 }

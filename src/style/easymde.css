@@ -8,7 +8,7 @@
 /* modified very heavily by me I recomend you look at the original */
 
 .CodeMirror{
-  color:#000
+  color:#000;
 }
 .CodeMirror-lines{
   padding:4px 0
@@ -250,7 +250,6 @@ span.CodeMirror-selectedtext{
   height:auto;
   min-height:300px;
   padding:10px;
-  font:inherit;
   z-index:1
 }
 .CodeMirror-scroll{

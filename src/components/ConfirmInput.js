@@ -18,6 +18,8 @@ export default class ConfirmInput extends Component {
         <TextArea 
           type="text" 
           defaultValue={ this.props.defaultValue } 
+          placeholder={ this.props.placeholder }
+          onPressEnter={ e => this.props.onChange && this.props.onChange(this.state.newVal) }
           onChange={ e => this.setState({ newVal: e.target.value }) } autosize/>
         <Button 
           style={{

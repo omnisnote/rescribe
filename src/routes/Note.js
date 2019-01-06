@@ -55,6 +55,7 @@ export default class Note extends Component {
           { this.context.notes && 
             <ConfirmInput className="title-input"
               defaultValue={ this.getMeta().title } 
+              placeholder="untitled note"
               onChange={ e => setMeta(this.state.uid, {
                 title: e
               }) }/> 

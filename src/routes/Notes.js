@@ -4,7 +4,7 @@ import { Button } from 'antd'
 
 import UserContext from "../context"
 
-import { transformToArr, getUserRef } from "../firebase/db"
+import { transformToArr, getUserRef, createNote } from "../firebase/db"
 
 import NewNote from "../containers/NewNote"
 import Sidebar from "../components/Sidebar"
@@ -17,17 +17,7 @@ export default class Notes extends Component {
   static contextType = UserContext
 
   addNote(e) {
-    getUserRef().collection("notes").add({
-      content: "hello!"
-    }).then(ref => {
-      getUserRef().update({
-        ["notes." + ref.id]: {
-          title: "new document",
-        }
-      }).then(res => { //TODO: make this not bad
-        this.props.history.push("/note/" + ref.id)
-      })
-    })
+    createNote("new Note", "", (ref, res) => this.props.history.push("/note/" + ref.id))
   }
 
   render() {

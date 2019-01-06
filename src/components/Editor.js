@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import EasyMDE from "easymde"
+// import Minimap from "../components/Minimap"
+import Outline from "../components/Outline"
 
 
 export default class Editor extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      mde: null
+      mde: null,
+      value: ""
     }
   }
 
@@ -22,6 +25,10 @@ export default class Editor extends Component {
       initialValue: this.props.defaultValue,
       placeholder: "write something"
     })
+
+    this.state.mde.codemirror.on("change", () => {
+      this.setState({ value: this.state.mde.value() })
+    })
   }
 
   componentWillUnmount() {
@@ -30,7 +37,11 @@ export default class Editor extends Component {
 
   render() {
     return (
-      <textarea ref={ e => this.editorEl = e } ></textarea>
+      <>
+        {/* <Minimap text={ this.state.value || (this.state.mde ? this.state.mde.value() : "") }/> */}
+        <Outline headings={ this.state.value ? this.state.value.split(/(#{1,6}.*)/g).filter(i => i.startsWith("#")) : [] }/>
+        <textarea ref={ e => this.editorEl = e } ></textarea>
+      </>
     )
   }
 

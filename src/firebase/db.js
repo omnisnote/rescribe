@@ -28,7 +28,21 @@ const setMeta = (uid, data) => {
   getUserRef().update("notes." + uid, data)
 }
 
+const createNote = (content, title, callback) => {
+  getUserRef().collection("notes").add({
+    content
+  }).then(ref => {
+    getUserRef().update({
+      ["notes." + ref.id]: {
+        title
+      }
+    }).then(res => { //TODO: make this not bad
+      callback(ref, res)
+    })
+  })
+}
+
 const transformToArr = (data) => Object.entries(data).map(entry => ({ uid: entry[0], ...entry[1] }))
 
 export default db
-export { createUser, getUserRef, transformToArr, setMeta }
+export { createUser, getUserRef, transformToArr, setMeta, createNote }
