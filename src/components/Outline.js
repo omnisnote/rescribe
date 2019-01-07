@@ -3,12 +3,15 @@ import React, { Component } from 'react'
 export default class Outline extends Component {
   render() {
     return (
-      <div className="outline" >
-        { this.props.headings.map((h, i) => (
-          <p key={i} style={{
-            marginLeft: (h.match(/^(#{1,6})/g).length * 20) + "px"
-          }}>{ h.replace(/#/g, "") }</p>
-        )) }
+      <div className="outline">
+        { this.props.headings.map((h, i) => {
+          const lvl = h.match(/^#{1,6}/g)[0].length
+          return (
+            <p key={i} style={{
+              marginLeft: (lvl * 5) + "px"
+            }}>{ h.replace(/#/g, "") }</p>
+          )
+        })}
       </div>
     )
   }

@@ -37,12 +37,13 @@ export default class Editor extends Component {
 
   render() {
     return (
-      <>
+      <div className="editor">
         {/* <Minimap text={ this.state.value || (this.state.mde ? this.state.mde.value() : "") }/> */}
-        <Outline headings={ this.state.value ? this.state.value.split(/(#{1,6}.*)/g).filter(i => i.startsWith("#")) : [] }/>
+        <Outline
+          headings={ this.state.value ? this.state.value.split(/(#{1,6}.*)/g).filter(i => i.startsWith("#")) : [] }
+        />
         <textarea ref={ e => this.editorEl = e } ></textarea>
-      </>
+      </div>
     )
   }
-
 }
