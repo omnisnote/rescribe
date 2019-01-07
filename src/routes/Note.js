@@ -30,6 +30,8 @@ export default class Note extends Component {
         note: snapshot.data()
       })
     })
+
+    
   }
 
   componentWillUnmount() {
@@ -62,7 +64,9 @@ export default class Note extends Component {
           }
           { this.state.note && (
             <div className="editor">
-              <Editor defaultValue={ this.state.note.content } onUnmount={ e => this.saveDoc(e) } />
+              <Editor 
+                defaultValue={ this.state.note.content } 
+                onUnmount={ e => this.saveDoc(e) } />
             </div>
           ) }
         </div>
