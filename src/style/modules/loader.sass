@@ -1,5 +1,37 @@
 .loader
-  width: 128px
-  height: 128px
-  border-radius: 50%
-  background-color: #000
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  margin: 64px 0 
+  .planet
+    width: 64px
+    height: 64px
+    border-radius: 50%
+    background-color: $main
+    position: relative
+    animation: orbit 1s ease-in-out infinite
+
+    &::after
+      content: ""
+      position: absolute
+      width: 16px
+      height: 16px
+      background-color: rgba(#222, 0.2)
+      top: -24px
+      left: calc(50% - 8px)
+      border-radius: 50%
+    &::before
+      content: ""
+      position: absolute
+      height: 96px
+      width: 96px
+      border: 1px solid #ddd
+      border-radius: 50%
+      top: -16px
+      left: -16px
+@keyframes orbit
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
