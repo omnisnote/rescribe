@@ -17,7 +17,7 @@ export default class Notes extends Component {
   static contextType = UserContext
 
   addNote(e) {
-    createNote("new Note", "", (ref, res) => this.props.history.push("/note/" + ref.id))
+    createNote("", "", (ref, res) => this.props.history.push("/note/" + ref.id))
   }
 
   render() {
