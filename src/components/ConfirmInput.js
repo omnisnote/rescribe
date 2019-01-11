@@ -16,9 +16,10 @@ export default class ConfirmInput extends Component {
         <input 
           type="text" 
           defaultValue={ this.props.defaultValue } 
-          placeholder={ this.props.placeholder }
+          placeholder={ this.props.placeholder } 
+          //TODO: make this be an actual event
           onPressEnter={ e => this.props.onChange && this.props.onChange(this.state.newVal) }
-          onChange={ e => this.setState({ newVal: e.target.value }) } autosize/>
+          onChange={ e => this.setState({ newVal: e.target.value }) } />
         <button 
           style={{
             overflow: "hidden",
