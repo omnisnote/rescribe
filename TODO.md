@@ -14,6 +14,8 @@
 - [ ] make large amounts of notes work
 - [ ] make outline clicking work
 - [ ] offline saving / caching
+- [ ] settings
+- [ ] figure out codeblock cutoff issues
 
 ## Stlyes
 
