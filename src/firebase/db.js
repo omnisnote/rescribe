@@ -30,7 +30,7 @@ const setMeta = (uid, data) => {
 
 const createNote = (content, title, callback) => {
   getUserRef().collection("notes").add({
-    content
+    ["content"]: content
   }).then(ref => {
     getUserRef().update({
       ["notes." + ref.id]: {

@@ -9,35 +9,33 @@ import NewNote from "../containers/NewNote"
 import Sidebar from "../components/Sidebar"
 import Loading from "../components/Loading"
 
-const nouns = [ "Metis","Adrastea","Amalthea","Thebe","Io","Europa","Ganymede","Callisto","Themisto","Leda","Himalia","Lysithea","Elara","Dia","Carpo","Euporie","Thelxinoe","Euanthe","Helike","Orthosie","Iocaste","Praxidike","Harpalyke","Mneme","Hermippe","Thyone","Ananke","Herse","Aitne","Kale","Taygete","Chaldene","Erinome","Aoede","Kallichore","Kalyke","Carme","Callirrhoe","Eurydome","Pasithee","Kore","Cyllene","Eukelade","Pasiphaë","Hegemone","Arche","Isonoe","Sinope","Sponde","Autonoe","Megaclite" ]
-const verbs = [ "Adamant", "Cerulean", "Boorish", "Arcadian", "Antic", "Corpulent", "Equanimous", "Guileless", "Irksome", "Luminous", "Zealous", "Withering", "Puckish" ]
 
 export default class Notes extends Component {
   constructor(props) {
     super(props)
   }
 
-  static contextType = UserContext
-
-  addNote(e) {
-    createNote("", verbs[Math.floor(Math.random() * verbs.length)] + " " + nouns[Math.floor(Math.random() * nouns.length)], (ref, res) => this.props.history.push("/note/" + ref.id))
+  create(ref, res) {
+    this.props.history.push("/note/" + ref.id)
   }
 
   render() {
     return (
-      <>
-        <Sidebar />
+      <UserContext.Consumer>{ context => (
+        <>
+        <Sidebar color="rgba(255,255,255,0.85)" size={ 36 }/>
         <div className="notes">
-          <NewNote />
-          { this.context.notes ? transformToArr(this.context.notes).map((note, i) => (
+          <NewNote onCreate={ (ref, res) => this.create(ref, res) } />
+          { context.notes ? transformToArr(context.notes).map((note, i) => (
             <Link to={"/note/" + note.uid} key={i}>
               <div className="note">
                 { note.title || "untitled note" }
               </div>
             </Link>
           )) : <Loading /> }
-        </div>        
-      </>
+          </div>   
+        </>
+      )}</UserContext.Consumer>
     )
   }
 

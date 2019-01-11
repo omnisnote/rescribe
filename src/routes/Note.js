@@ -52,7 +52,7 @@ export default class Note extends Component {
   render() {
     return (
       <>
-        <Sidebar />
+        <Sidebar color="rgba(255,255,255,0.85)" size={ 36 }/>
         <div className="note-editor">
           { this.context.notes && 
             <ConfirmInput className="title-input"
