@@ -14,7 +14,6 @@ export default class NewNote extends Component {
   }
 
   create(e) {
-    console.log(this.props)
     createNote("", verbs[Math.floor(Math.random() * verbs.length)] + " " + nouns[Math.floor(Math.random() * nouns.length)], (ref, res) => 
       this.props.onCreate && this.props.onCreate(ref, res))
   }

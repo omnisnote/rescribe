@@ -6,7 +6,7 @@ import UserContext from "../context"
 import { transformToArr, getUserRef, createNote } from "../firebase/db"
 
 import NewNote from "../containers/NewNote"
-import Sidebar from "../components/Sidebar"
+import Sidebar from "../containers/Sidebar"
 import Loading from "../components/Loading"
 
 

@@ -4,7 +4,7 @@ import { getUserRef } from "../firebase/db"
 
 import UserContext from "../context"
 
-import Sidebar from "../components/Sidebar"
+import Sidebar from "../containers/Sidebar"
 
 export default class Settings extends Component {
   constructor(props) {

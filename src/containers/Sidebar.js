@@ -10,6 +10,7 @@ export default class Sidebar extends Component {
         <Link to="/"><MaterialIcon icon="apps" size={this.props.size || 48} color={this.props.color || '#fff'}/></Link>
         <Link to="/notes"><MaterialIcon icon="format_list_bulleted" size={this.props.size || 48} color={this.props.color || '#fff'}/></Link>
         <Link to="/settings"><MaterialIcon icon="settings" size={this.props.size || 48} color={this.props.color || '#fff'}/></Link>
+        <Link to="/settings"><MaterialIcon icon="add" size={this.props.size || 48} color={this.props.color || '#fff'}/></Link>
 
       </div>
     )

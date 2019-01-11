@@ -7,7 +7,7 @@ import UserContext from "../context"
 
 import ConfirmInput from "../components/ConfirmInput"
 import MainEditor from "../components/MainEditor"
-import Sidebar from "../components/Sidebar"
+import Sidebar from "../containers/Sidebar"
 
 export default class Note extends Component {
   constructor(props) {
