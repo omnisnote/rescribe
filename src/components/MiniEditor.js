@@ -16,7 +16,7 @@ export default class MiniEditor extends Component {
 
   render() {
     return (
-      <div className="editor">
+      <div className="mini-editor">
         <Editor defaultValue={ this.props.defaultValue }
                 onChange={ e => this.setState({ value: e.value() }) } />
       </div>

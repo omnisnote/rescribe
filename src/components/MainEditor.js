@@ -17,7 +17,7 @@ export default class MainEditor extends Component {
 
   render() {
     return (
-      <div className="editor">
+      <div className="main-editor">
         <Outline headings={ this.state.value ? this.state.value.split(/(#{1,6} .*)/g).filter(i => i.startsWith("#")) : [] } />
         <Editor defaultValue={ this.props.defaultValue }
                 onChange={ e => this.setState({ value: e.value() }) } />

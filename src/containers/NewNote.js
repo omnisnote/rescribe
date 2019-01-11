@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getUserRef, createNote } from "../firebase/db"
+import MaterialIcon from 'material-icons-react'
 
 import MiniEditor from "../components/MiniEditor"
 
@@ -22,7 +23,9 @@ export default class NewNote extends Component {
     return (
       <div className="new-note">
         <MiniEditor placeholder="take a note" autosize={{ minRows: 4, maxRows: 4 }} />
-        <button onClick={ e => this.create(e) }>save</button>
+        <button onClick={ e => this.create(e) } className="create">
+          <MaterialIcon icon="arrow_forward" size="24"/>
+        </button>
       </div>
     )
   }
