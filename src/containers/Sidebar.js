@@ -2,8 +2,17 @@ import React, { Component } from 'react'
 import { Link } from "react-router-dom"
 import MaterialIcon from 'material-icons-react'
 
+import { createNote } from "../firebase/db"
+
 
 export default class Sidebar extends Component {
+
+  create(e) {
+    createNote("", "new note", (ref, res) => {
+      this.props.history.push("/note/" + ref.id)
+    })
+  }
+
   render() {
     return (
       <div className="sidebar">
