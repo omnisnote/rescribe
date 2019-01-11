@@ -10,7 +10,7 @@ export default class Outline extends Component {
             <p key={i} style={{
               marginLeft: (lvl * 5) + "px"
             }}>
-            <p className="lvl">{ "h" + lvl }</p>    
+            <span className="lvl">{ "h" + lvl }</span>    
             { h.replace(/#/g, "") }</p>
           )
         })}
