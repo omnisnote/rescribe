@@ -27,7 +27,7 @@ export default class ConfirmInput extends Component {
             cursor: this.props.defaultValue !== this.state.newVal ? "pointer" : "auto",
           }}
           onClick={ e => this.props.onChange && this.props.onChange(this.state.newVal) }>
-          <MaterialIcon icon="check"/>Save
+          <MaterialIcon icon="check"/>{this.props.text || ""}
         </button>
       </div>
     )
