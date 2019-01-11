@@ -6,7 +6,7 @@ import { getUserRef, setMeta } from "../firebase/db"
 import UserContext from "../context"
 
 import ConfirmInput from "../components/ConfirmInput"
-import Editor from "../components/Editor"
+import MainEditor from "../components/MainEditor"
 import Sidebar from "../components/Sidebar"
 
 export default class Note extends Component {
@@ -64,7 +64,7 @@ export default class Note extends Component {
           }
           { this.state.note && (
             <div className="editor">
-              <Editor 
+              <MainEditor 
                 defaultValue={ this.state.note.content } 
                 onUnmount={ e => this.saveDoc(e) } />
             </div>

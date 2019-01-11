@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom"
-import { Button } from 'antd'
 
 import UserContext from "../context"
 
@@ -25,7 +24,6 @@ export default class Notes extends Component {
       <>
         <Sidebar />
         <div className="notes">
-          <NewNote />
           { this.context.notes ? transformToArr(this.context.notes).map((note, i) => (
             <Link to={"/note/" + note.uid} key={i}>
               <div className="note">
@@ -34,7 +32,6 @@ export default class Notes extends Component {
             </Link>
           )) : <p>loading notes</p> }
         </div>        
-        <Button className="add" type="primary" size="large" shape="circle" icon="plus" onClick={ e => this.addNote(e) } />
       </>
     )
   }
