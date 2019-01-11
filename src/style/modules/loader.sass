@@ -17,7 +17,7 @@
       position: absolute
       width: 16px
       height: 16px
-      background-color: rgba(#222, 0.2)
+      background-color: $main
       top: -24px
       left: calc(50% - 8px)
       border-radius: 50%
@@ -26,10 +26,11 @@
       position: absolute
       height: 96px
       width: 96px
-      border: 1px solid #ddd
+      border: 1px solid lighten($main, 10%)
       border-radius: 50%
-      top: -16px
-      left: -16px
+      top: -17px
+      left: -17px
+
 @keyframes orbit
   0%
     transform: rotate(0deg)
