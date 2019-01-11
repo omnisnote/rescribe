@@ -7,6 +7,7 @@ import { transformToArr, getUserRef, createNote } from "../firebase/db"
 
 import NewNote from "../containers/NewNote"
 import Sidebar from "../components/Sidebar"
+import Loading from "../components/Loading"
 
 const nouns = [ "Metis","Adrastea","Amalthea","Thebe","Io","Europa","Ganymede","Callisto","Themisto","Leda","Himalia","Lysithea","Elara","Dia","Carpo","Euporie","Thelxinoe","Euanthe","Helike","Orthosie","Iocaste","Praxidike","Harpalyke","Mneme","Hermippe","Thyone","Ananke","Herse","Aitne","Kale","Taygete","Chaldene","Erinome","Aoede","Kallichore","Kalyke","Carme","Callirrhoe","Eurydome","Pasithee","Kore","Cyllene","Eukelade","Pasiphaë","Hegemone","Arche","Isonoe","Sinope","Sponde","Autonoe","Megaclite" ]
 const verbs = [ "Adamant", "Cerulean", "Boorish", "Arcadian", "Antic", "Corpulent", "Equanimous", "Guileless", "Irksome", "Luminous", "Zealous", "Withering", "Puckish" ]
@@ -34,7 +35,7 @@ export default class Notes extends Component {
                 { note.title || "untitled note" }
               </div>
             </Link>
-          )) : <p>loading notes</p> }
+          )) : <Loading /> }
         </div>        
       </>
     )
