@@ -10,6 +10,7 @@
 
 .CodeMirror
   color: $syntax-fg
+  width: calc(100% - 169px)
 
 .CodeMirror-lines
   padding: 4px 0
@@ -31,7 +32,6 @@
 @keyframes blink
   50%
     background-color: transparent
-
 
 .cm-tab
   display: inline-block
@@ -347,8 +347,10 @@ span.CodeMirror-selectedtext
       font-size: 110%
       line-height: 110%
     .cm-comment
-      background: rgba(0, 0, 0, 0.05)
-      font-family: "Roboto Mono"
+      background-color: $syntax-selection-color
+      font-family: $monospace
+      width: 100%
+      display: inline-block
     .cm-link
       color: #7f8c8d
     .cm-url

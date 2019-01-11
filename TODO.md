@@ -11,6 +11,7 @@
 - [ ] create navigation system
 - [ ] create some kind of search functionality
 - [ ] make large amounts of notes work
+- [ ] make outline clicking work
 
 ## Stlyes
 
@@ -22,7 +23,7 @@
 
 - [ ] publish
 - [ ] figure out if the noscript stays
-- [ ] make a loading thing
+- [x] make a loading thing
 
 ## Misc
 

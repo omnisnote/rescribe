@@ -1,9 +1,12 @@
-*:not(.Codemirror *)
+*:not(.CodeMirror-line)
   margin: 0
   padding: 0
   border: none
   box-sizing: border-box
   outline: none
+
+  
+  font-family: "Open Sans", sans-serif
 
 a, a:hover, a:active, a:visitied
   color: inherit
@@ -13,5 +16,11 @@ body
   color: $syntax-fg
 
 ::selection
-  background-color: rgba(179,127,235, 0.2)
-  color: rgba(#000, 0.85)
+  background-color: $syntax-selection-color
+
+::-webkit-scrollbar
+  width: 3px
+
+
+::-webkit-scrollbar-thumb
+  background-color: $main
