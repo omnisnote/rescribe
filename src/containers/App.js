@@ -54,6 +54,10 @@ export default class App extends Component {
 
   render() {
     return (
+      <Loading />
+    )
+    
+    return (
       <div className="app">
         <UserContext.Provider value={ this.state.user }>
           <Router>

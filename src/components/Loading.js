@@ -3,7 +3,9 @@ import React, { Component } from 'react'
 export default class Loading extends Component {
   render() {
     return (
-      <h1>loading...</h1>
+      <div className="loader">
+        <div className="planet"></div>
+      </div>
     )
   }
 
