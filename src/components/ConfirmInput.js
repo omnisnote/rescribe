@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import MaterialIcon from 'material-icons-react'
 
 export default class ConfirmInput extends Component {
   constructor(props) {
@@ -22,13 +23,11 @@ export default class ConfirmInput extends Component {
           onChange={ e => this.setState({ newVal: e.target.value }) } />
         <button 
           style={{
-            overflow: "hidden",
-            maxWidth: this.props.defaultValue !== this.state.newVal ? "100%" : 0,
-            padding: this.props.defaultValue !== this.state.newVal ? "0 15px" : 0
+            opacity: this.props.defaultValue !== this.state.newVal ? 1 : 0,
+            cursor: this.props.defaultValue !== this.state.newVal ? "pointer" : "auto",
           }}
-          type="primary" 
           onClick={ e => this.props.onChange && this.props.onChange(this.state.newVal) }>
-          Save
+          <MaterialIcon icon="check"/>Save
         </button>
       </div>
     )

@@ -22,7 +22,7 @@ export default class NewNote extends Component {
   render() {
     return (
       <div className="new-note">
-        <MiniEditor placeholder="take a note" autosize={{ minRows: 4, maxRows: 4 }} />
+        <MiniEditor placeholder="take a note" />
         <button onClick={ e => this.create(e) } className="create">
           <MaterialIcon icon="arrow_forward" size="24"/>
         </button>
