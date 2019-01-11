@@ -25,5 +25,5 @@
 - [ ] hall of thanks?
 - [ ] configure mde
 - [ ] test on mobile
-- [ ] dont mix sass and less.... you are an idiot
-- [ ] migrate from antd
+- [x] dont mix sass and less.... you are an idiot
+- [x] migrate from antd
