@@ -10,6 +10,7 @@
 - [ ] create navigation system
 - [ ] create some kind of search functionality
 - [ ] make large amounts of notes work
+- [ ] make outline clicking work
 
 ## Stlyes
 - [ ] figure out how to make full-width code blocks
@@ -19,7 +20,7 @@
 ## Brand
 - [ ] publish
 - [ ] figure out if the noscript stays
-- [ ] make a loading thing
+- [x] make a loading thing
 
 ## Misc
 - [ ] hall of thanks?
