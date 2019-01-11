@@ -1,0 +1,364 @@
+/**
+ * simplemde v1.11.2
+ * Copyright Next Step Webs, Inc.
+ * @link https://github.com/NextStepWebs/simplemde-markdown-editor
+ * @license MIT
+ */
+
+/* modified very heavily by me I recomend you look at the original */
+// converted from css to sass
+
+.CodeMirror
+  color: $syntax-fg
+
+.CodeMirror-lines
+  padding: 4px 0
+
+.CodeMirror pre
+  padding: 0 4px
+
+.CodeMirror-cursor
+  border-left: 1px solid $syntax-fg
+  border-right: none
+  width: 0
+
+.CodeMirror div.CodeMirror-secondarycursor
+  border-left: 1px solid $syntax-fg
+
+.cm-fat-cursor div.CodeMirror-cursors
+  z-index: 1
+
+@keyframes blink
+  50%
+    background-color: transparent
+
+
+.cm-tab
+  display: inline-block
+  text-decoration: inherit
+
+.cm-header, .cm-strong
+  font-weight: 700
+
+.cm-em
+  font-style: italic
+
+.cm-link
+  text-decoration: underline
+
+.cm-strikethrough
+  text-decoration: line-through
+
+.cm-hr:after
+  content: ""
+  position: absolute
+  top: calc(50% + 1px)
+  left: 0
+  background-color: $syntax-fg
+  height: 1px
+  width: 100%
+
+.CodeMirror
+  position: relative
+  overflow: hidden
+
+.CodeMirror-scroll
+  overflow: scroll !important
+  margin-bottom: -30px
+  margin-right: -30px
+  padding-bottom: 30px
+  height: 100%
+  outline: 0
+  position: relative
+
+.CodeMirror-sizer
+  position: relative
+  border-right: 30px solid transparent
+
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler
+  position: absolute
+  z-index: 6
+  display: none
+
+.CodeMirror-vscrollbar
+  position: absolute
+  z-index: 6
+  display: none
+  right: 0
+  top: 0
+  overflow-x: hidden
+  overflow-y: scroll
+
+.CodeMirror-hscrollbar
+  bottom: 0
+  left: 0
+  overflow-y: hidden
+  overflow-x: scroll
+
+.CodeMirror-scrollbar-filler
+  right: 0
+  bottom: 0
+
+.CodeMirror-gutter-filler
+  left: 0
+  bottom: 0
+
+.CodeMirror-gutters
+  position: absolute
+  left: 0
+  top: 0
+  min-height: 100%
+  z-index: 3
+
+.CodeMirror-gutter
+  white-space: normal
+  height: 100%
+  display: inline-block
+  vertical-align: top
+  margin-bottom: -30px
+
+.CodeMirror-gutter-wrapper
+  position: absolute
+  z-index: 4
+  background: 0 0 !important
+  border: none !important
+  -webkit-user-select: none
+  -moz-user-select: none
+  user-select: none
+
+.CodeMirror-gutter-background
+  position: absolute
+  top: 0
+  bottom: 0
+  z-index: 4
+
+.CodeMirror-gutter-elt
+  position: absolute
+  cursor: default
+  z-index: 4
+
+.CodeMirror-lines
+  cursor: text
+  min-height: 1px
+
+.CodeMirror pre
+  -moz-border-radius: 0
+  -webkit-border-radius: 0
+  border-radius: 0
+  border-width: 0
+  background: 0 0
+  font-family: inherit
+  font-size: inherit
+  margin: 0
+  white-space: pre
+  word-wrap: normal
+  line-height: inherit
+  color: inherit
+  z-index: 2
+  position: relative
+  overflow: visible
+  -webkit-tap-highlight-color: transparent
+  -webkit-font-variant-ligatures: none
+  font-variant-ligatures: none
+
+.CodeMirror-wrap pre
+  word-wrap: break-word
+  white-space: pre-wrap
+  word-break: normal
+
+.CodeMirror-linebackground
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  z-index: 0
+
+.CodeMirror-linewidget
+  position: relative
+  z-index: 2
+  overflow: auto
+
+.CodeMirror-code
+  outline: 0
+
+.CodeMirror-gutter, .CodeMirror-gutters, .CodeMirror-linenumber, .CodeMirror-scroll, .CodeMirror-sizer
+  -moz-box-sizing: content-box
+  box-sizing: content-box
+
+.CodeMirror-measure
+  position: absolute
+  width: 100%
+  height: 0
+  overflow: hidden
+  visibility: hidden
+
+.CodeMirror-cursor
+  position: absolute
+
+.CodeMirror-measure pre
+  position: static
+
+div.CodeMirror-cursors
+  visibility: hidden
+  position: relative
+  z-index: 3
+
+.CodeMirror-focused div.CodeMirror-cursors, div.CodeMirror-dragcursors
+  visibility: visible
+
+.CodeMirror-selected, .CodeMirror-focused .CodeMirror-selected
+  background: $syntax-selection-color
+
+.CodeMirror-line
+  &::selection
+    background: $syntax-selection-color
+  > span
+    &::selection, > span::selection
+      background: $syntax-selection-color
+
+.CodeMirror-crosshair
+  cursor: crosshair
+
+.CodeMirror-line
+  &::-moz-selection
+    background: $syntax-selection-color
+  > span
+    &::-moz-selection, > span::-moz-selection
+      background: $syntax-selection-color
+
+.cm-force-border
+  padding-right: 0.1px
+
+@media print
+  .CodeMirror div.CodeMirror-cursors
+    visibility: hidden
+
+.cm-tab-wrap-hack:after
+  content: ""
+
+span.CodeMirror-selectedtext
+  background: 0 0
+
+.CodeMirror
+  height: auto
+  min-height: 300px
+  padding: 10px
+  z-index: 1
+
+.CodeMirror-scroll
+  min-height: 300px
+
+.CodeMirror-fullscreen
+  position: fixed !important
+  top: 50px
+  left: 0
+  right: 0
+  bottom: 0
+  height: auto
+  z-index: 9
+
+.CodeMirror-sided
+  width: 50% !important
+
+.editor-statusbar
+  padding: 8px 10px
+  font-size: 12px
+  color: #959694
+  text-align: right
+  span
+    display: inline-block
+    min-width: 4em
+    margin-left: 1em
+
+.editor-preview, .editor-preview-side
+  padding: 10px
+  background: #fafafa
+  overflow: auto
+  display: none
+  box-sizing: border-box
+
+.editor-statusbar
+  .lines:before
+    content: "lines: "
+  .words:before
+    content: "words: "
+  .characters:before
+    content: "characters: "
+
+.editor-preview
+  position: absolute
+  width: 100%
+  height: 100%
+  top: 0
+  left: 0
+  z-index: 7
+
+.editor-preview-side
+  position: fixed
+  bottom: 0
+  width: 50%
+  top: 50px
+  right: 0
+  z-index: 9
+  border: 1px solid #ddd
+
+.editor-preview-active, .editor-preview-active-side
+  display: block
+
+.editor-preview-side > p
+  margin-top: 0
+
+.editor-preview
+  > p
+    margin-top: 0
+  pre
+    background: #eee
+    margin-bottom: 10px
+
+.editor-preview-side pre
+  background: #eee
+  margin-bottom: 10px
+
+.editor-preview table
+  td, th
+    border: 1px solid #ddd
+    padding: 5px
+
+.editor-preview-side table
+  td, th
+    border: 1px solid #ddd
+    padding: 5px
+
+.CodeMirror
+  .CodeMirror-selected
+    background: $syntax-selection-color
+  .CodeMirror-code
+    .cm-header-1
+      font-size: 200%
+      line-height: 200%
+    .cm-header-2
+      font-size: 160%
+      line-height: 160%
+    .cm-header-3
+      font-size: 125%
+      line-height: 125%
+    .cm-header-4
+      font-size: 110%
+      line-height: 110%
+    .cm-comment
+      background: rgba(0, 0, 0, 0.05)
+      font-family: "Roboto Mono"
+    .cm-link
+      color: #7f8c8d
+    .cm-url
+      color: #aab2b3
+    .cm-strikethrough
+      text-decoration: line-through
+    .cm-quote.cm-formatting
+      border-left: 4px solid $syntax-fg
+      padding-left: 4px
+  .CodeMirror-placeholder
+    opacity: 0.5
+  .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word)
+    border-bottom: 1px solid $hue-5-2
