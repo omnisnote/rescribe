@@ -24,6 +24,7 @@ export default class Notes extends Component {
       <>
         <Sidebar />
         <div className="notes">
+          <NewNote />
           { this.context.notes ? transformToArr(this.context.notes).map((note, i) => (
             <Link to={"/note/" + note.uid} key={i}>
               <div className="note">

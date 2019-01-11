@@ -16,7 +16,7 @@ export default class NewNote extends Component {
     return (
       <div className="new-note">
         <textarea placeholder="take a note" autosize={{ minRows: 4, maxRows: 4 }} />
-        <button onClick={ e => this.create(e) }></button>
+        <button onClick={ e => this.create(e) }>save</button>
       </div>
     )
   }

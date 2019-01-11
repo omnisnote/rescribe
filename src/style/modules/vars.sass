@@ -1,14 +1,7 @@
 $bg: #fafafa
 $bg-dark: darken($bg, 4%)
 $main: #b37feb
-$border-radius-base: 0
 $text-color: rgba(#000, 0.85)
 
 @mixin transition($t) 
   transition: all $t ease-in-out
-
-@mixin resetFocus()
-  &:hover, &:focus, &:active, &
-    outline: none
-    box-shadow: none
-    border: none
