@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import EasyMDE from "easymde"
-// import Minimap from "../Minimap"
 import Outline from "./Outline"
 import Editor from "./Editor"
 

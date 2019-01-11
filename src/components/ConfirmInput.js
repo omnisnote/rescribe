@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Button } from "antd"
 
-const { TextArea } = Input
 
 export default class ConfirmInput extends Component {
   constructor(props) {
@@ -15,13 +13,13 @@ export default class ConfirmInput extends Component {
   render() {
     return (
       <div className={ this.props.className || "" }>
-        <TextArea 
+        <input 
           type="text" 
           defaultValue={ this.props.defaultValue } 
           placeholder={ this.props.placeholder }
           onPressEnter={ e => this.props.onChange && this.props.onChange(this.state.newVal) }
           onChange={ e => this.setState({ newVal: e.target.value }) } autosize/>
-        <Button 
+        <button 
           style={{
             overflow: "hidden",
             maxWidth: this.props.defaultValue !== this.state.newVal ? "100%" : 0,
@@ -30,7 +28,7 @@ export default class ConfirmInput extends Component {
           type="primary" 
           onClick={ e => this.props.onChange && this.props.onChange(this.state.newVal) }>
           Save
-        </Button>
+        </button>
       </div>
     )
   }
