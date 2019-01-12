@@ -27,8 +27,8 @@ export default class Notes extends Component {
         <div className="notes">
           <NewNote onCreate={ (ref, res) => this.create(ref, res) } />
           { context.notes ? transformToArr(context.notes).map((note, i) => (
-            <Link to={"/note/" + note.uid} key={i}>
-              <div className="note">
+            <Link to={"/note/" + note.uid} key={i} className="note">
+              <div>
                 { note.title || "untitled note" }
               </div>
             </Link>
