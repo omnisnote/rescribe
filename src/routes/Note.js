@@ -10,30 +10,28 @@ import MainEditor from "../components/MainEditor"
 import Sidebar from "../containers/Sidebar"
 import NoteList from "../containers/NoteList"
 
+function getNotesDoc(props) {
+  return getUserRef().collection("notes").doc(props.match.params.uid)
+}
+
 export default class Note extends Component {
   constructor(props) {
     super(props)
-    this.state = {
+  }
+
+  static contextType = UserContext
+
+  componentDidMount() {
+    
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    return {
       note: null,
       uid: props.match.params.uid,
     }
   }
 
-  static contextType = UserContext
-
-  getNotesDoc() {
-    return getUserRef().collection("notes").doc(this.props.match.params.uid)
-  }
-
-  componentDidMount() {
-    this.noteObservable = this.getNotesDoc().onSnapshot(snapshot => {
-      this.setState({
-        note: snapshot.data()
-      })
-    })
-
-    
-  }
 
   componentWillUnmount() {
     this.noteObservable = null
@@ -41,16 +39,22 @@ export default class Note extends Component {
 
   getMeta() {
     //TODO: store this in state or something
-    return this.context.notes[this.state.uid]
+    return this.context.notes[this.props.uid]
   }
 
   saveDoc(e) {
-    this.getNotesDoc().set({
+    getNotesDoc(this.props).set({
       content: e.value
     })
   }
 
   render() {
+    this.noteObservable = getNotesDoc(this.props).onSnapshot(snapshot => {
+      this.setState({
+        note: snapshot.data()
+      })
+    })
+
     return (
       <div className="note">
         <Sidebar color="rgba(255,255,255,0.85)" size={ 36 }/>
@@ -58,9 +62,9 @@ export default class Note extends Component {
         <div className="note-editor">
           { this.context.notes && 
             <ConfirmInput className="title-input"
-              defaultValue={ this.getMeta().title } 
+              defaultValue={ (this.state.meta || {}).title } 
               placeholder="untitled note"
-              onChange={ e => setMeta(this.state.uid, {
+              onChange={ e => setMeta(this.props.uid, {
                 title: e
               }) }/> 
           }
