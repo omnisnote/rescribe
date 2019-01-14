@@ -4,9 +4,6 @@ import MaterialIcon from 'material-icons-react'
 
 import MiniEditor from "../components/MiniEditor"
 
-const nouns = [ "Metis","Adrastea","Amalthea","Thebe","Io","Europa","Ganymede","Callisto","Themisto","Leda","Himalia","Lysithea","Elara","Dia","Carpo","Euporie","Thelxinoe","Euanthe","Helike","Orthosie","Iocaste","Praxidike","Harpalyke","Mneme","Hermippe","Thyone","Ananke","Herse","Aitne","Kale","Taygete","Chaldene","Erinome","Aoede","Kallichore","Kalyke","Carme","Callirrhoe","Eurydome","Pasithee","Kore","Cyllene","Eukelade","Pasiphaë","Hegemone","Arche","Isonoe","Sinope","Sponde","Autonoe","Megaclite" ]
-const verbs = [ "Adamant", "Cerulean", "Boorish", "Arcadian", "Antic", "Corpulent", "Equanimous", "Guileless", "Irksome", "Luminous", "Zealous", "Withering", "Puckish" ]
-
 export default class NewNote extends Component {
 
   constructor(props) {
@@ -15,8 +12,7 @@ export default class NewNote extends Component {
   }
 
   create(e) {
-    createNote("", verbs[Math.floor(Math.random() * verbs.length)] + " " + nouns[Math.floor(Math.random() * nouns.length)], (ref, res) => 
-      this.props.onCreate && this.props.onCreate(ref, res))
+    this.props.onCreate && this.props.onCreate(e)
   }
 
   render() {
