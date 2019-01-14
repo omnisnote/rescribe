@@ -8,6 +8,7 @@ import UserContext from "../context"
 import ConfirmInput from "../components/ConfirmInput"
 import MainEditor from "../components/MainEditor"
 import Sidebar from "../containers/Sidebar"
+import NoteList from "../containers/NoteList"
 
 export default class Note extends Component {
   constructor(props) {
@@ -51,8 +52,9 @@ export default class Note extends Component {
 
   render() {
     return (
-      <>
+      <div className="note">
         <Sidebar color="rgba(255,255,255,0.85)" size={ 36 }/>
+        <NoteList sidebar/>
         <div className="note-editor">
           { this.context.notes && 
             <ConfirmInput className="title-input"
@@ -70,7 +72,7 @@ export default class Note extends Component {
             </div>
           ) }
         </div>
-      </>
+      </div>
     )
   }
 

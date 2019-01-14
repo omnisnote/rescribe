@@ -1,0 +1,16 @@
+.note-list
+  display: flex
+  justify-content: center
+  flex-wrap: wrap
+  margin: 0 auto
+  .note
+    padding: 8px
+    margin: 4px
+    max-width: 240px
+    +transition(0.1s)
+    &:hover
+      background-color: $syntax-guide
+.note-sidebar
+  width: 240px
+  height: 100vh
+  overflow-y: scroll
