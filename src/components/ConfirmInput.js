@@ -11,12 +11,21 @@ export default class ConfirmInput extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.overwrite && this.props.overwrite(prevProps.defaultValue)) {
+      this.setState({
+        newVal: this.props.defaultValue
+      })
+    }
+    
+  }
+
   render() {
     return (
       <div className={ this.props.className || "" }>
         <input 
           type="text" 
-          defaultValue={ this.props.defaultValue } 
+          value={ this.state.newVal } 
           placeholder={ this.props.placeholder } 
           //TODO: make this be an actual event
           onPressEnter={ e => this.props.onChange && this.props.onChange(this.state.newVal) }
