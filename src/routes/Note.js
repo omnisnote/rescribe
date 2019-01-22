@@ -50,7 +50,12 @@ export default class Note extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    this.loadNote(prevProps)
+    this.loadNote(this.props)
+    if(prevProps.match.params.uid !== this.props.match.params.uid) {
+      this.setState({
+        uid: this.props.match.params.uid
+      })
+    }
   }
 
   componentDidMount() {
@@ -85,7 +90,7 @@ export default class Note extends Component {
               defaultValue={ (this.getMeta() || {}).title } 
               overwrite={ def => def !== (this.getMeta() || {}).title }
               placeholder="untitled note"
-              onChange={ e => setMeta(this.props.uid, {
+              onChange={ e => setMeta(this.state.uid, {
                 title: e
               }) }/> 
           }

@@ -20,6 +20,7 @@ export default class Notes extends Component {
   }
 
   create(e) {
+    console.log("hi")
     createNote("", verbs[Math.floor(Math.random() * verbs.length)] + " " + nouns[Math.floor(Math.random() * nouns.length)], (ref, res) => {
       this.props.history.push("/note/" + ref.id)
     })
@@ -32,7 +33,7 @@ export default class Notes extends Component {
           <Sidebar color="rgba(255,255,255,0.85)" size={ 36 }/>
           <NewNote />
           <NoteList />
-          <button className="add" onClick={ e => this }>
+          <button className="add" onClick={ e => this.create() }>
             <MaterialIcon icon="add" size={32} />
           </button>
         </>
