@@ -11,20 +11,28 @@ export default class MainEditor extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if(this.props.defaultValue !== prevProps.defaultValue) {
+      this.setState({
+        value: this.props.defaultValue
+      })
+      this.props.onUnmount && this.props.onUnmount({ value: this.state.value || "" })
+    }
+  }
+
   componentWillUnmount() {
     this.props.onUnmount && this.props.onUnmount({ value: this.state.value })
   }
   
   onChange(e) {
     this.setState({ value: e.value() })
-    this.props.onChange && this.props.onChange(e)
   }
 
   render() {
     return (
       <div className="main-editor">
         <Outline headings={ this.state.value ? this.state.value.split(/(#{1,6} .*)/g).filter(i => i.startsWith("#")) : [] } />
-        <Editor defaultValue={ this.props.defaultValue }
+        <Editor value={ this.state.value }
                 onChange={ e => this.onChange(e) } />
       </div>
     )

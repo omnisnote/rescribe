@@ -19,7 +19,7 @@ export default class Editor extends Component {
       },
       status: false,
       autofocus: true,
-      initialValue: this.props.defaultValue,
+      initialValue: this.props.value,
       placeholder: "write something"
     })
 
