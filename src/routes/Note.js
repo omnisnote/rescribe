@@ -32,13 +32,22 @@ export default class Note extends Component {
     return getUserRef().collection("notes").doc(this.props.match.params.uid)
   }
 
-  loadNote(prevProps) {
-    if(!this.state.uid || (!prevProps || (this.state.uid !== prevProps.match.params.uid))) {
+  loadNote(props) {
+    console.log("current: " + (props && props.match.params.uid))
+    console.log("prev: " + this.state.uid)
+    if(!this.state.uid || (!props || (this.state.uid !== props.match.params.uid))) {
       if(this.state.newContent !== undefined) {
         this.saveDoc({ value: this.state.newContent })
       }
+      
+      this.setState({
+        uid: (props || this.props).match.params.uid,
+        note: null,
+      })
+
       this.noteObservable = this.getNotesDoc().onSnapshot(snapshot => {
         let data = snapshot.data()
+        console.log("hi from observable")
         if(data) {
           this.setState({
             note: data,
@@ -50,11 +59,9 @@ export default class Note extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    this.loadNote(this.props)
     if(prevProps.match.params.uid !== this.props.match.params.uid) {
-      this.setState({
-        uid: this.props.match.params.uid
-      })
+      this.loadNote(this.props)
+      
     }
   }
 
@@ -72,8 +79,6 @@ export default class Note extends Component {
   }
 
   saveDoc(e) {
-    console.log(e)
-
     this.getNotesDoc().set({
       content: e.value
     })
@@ -97,7 +102,8 @@ export default class Note extends Component {
           { this.state.note && (
             <div className="editor">
               <MainEditor 
-                defaultValue={ this.state.newContent } 
+                defaultValue={ this.state.newContent }
+                uid={ this.state.uid }
                 onUnmount={ e => this.saveDoc(e) } />
             </div>
           ) }

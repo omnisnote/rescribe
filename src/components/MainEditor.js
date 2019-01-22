@@ -12,10 +12,14 @@ export default class MainEditor extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(this.props.defaultValue !== prevProps.defaultValue) {
+    if(this.props.uid !== prevProps.uid) {
+      console.log("changing")
+      console.log(prevProps.defaultValue)
       this.setState({
         value: this.props.defaultValue
       })
+      console.log(this.state)
+
       this.props.onUnmount && this.props.onUnmount({ value: this.state.value || "" })
     }
   }
