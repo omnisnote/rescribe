@@ -24,30 +24,21 @@ export default class Note extends Component {
   static getDerivedStateFromProps(props, state) {
     return {
       note: state.note || null,
-      uid: props.match.params.uid,
     }
   }
 
-  getNotesDoc() {
-    return getUserRef().collection("notes").doc(this.props.match.params.uid)
+  getNotesDoc(uid) {
+    return getUserRef().collection("notes").doc(uid || this.state.uid || this.props.match.params.uid)
   }
 
-  loadNote(props) {
-    console.log("current: " + (props && props.match.params.uid))
-    console.log("prev: " + this.state.uid)
-    if(!this.state.uid || (!props || (this.state.uid !== props.match.params.uid))) {
+  loadNote(props, firstRender) {
+    if(firstRender ||!this.state.uid || (this.state.uid !== props.match.params.uid)) {
       if(this.state.newContent !== undefined) {
         this.saveDoc({ value: this.state.newContent })
       }
-      
-      this.setState({
-        uid: (props || this.props).match.params.uid,
-        note: null,
-      })
 
-      this.noteObservable = this.getNotesDoc().onSnapshot(snapshot => {
+      this.noteObservable = this.getNotesDoc(props.match.params.uid).onSnapshot(snapshot => {
         let data = snapshot.data()
-        console.log("hi from observable")
         if(data) {
           this.setState({
             note: data,
@@ -61,12 +52,19 @@ export default class Note extends Component {
   componentDidUpdate(prevProps) {
     if(prevProps.match.params.uid !== this.props.match.params.uid) {
       this.loadNote(this.props)
-      
+      this.setState({
+        uid: this.props.match.params.uid,
+        note: null,
+      })
     }
   }
 
   componentDidMount() {
-    this.loadNote()
+    this.loadNote(this.props, true)
+    this.setState({
+      uid: this.props.match.params.uid,
+      note: null,
+    })
   }
 
   componentWillUnmount() {
