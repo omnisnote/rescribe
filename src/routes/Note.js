@@ -24,6 +24,7 @@ export default class Note extends Component {
   static getDerivedStateFromProps(props, state) {
     return {
       note: state.note || null,
+      uid: props.match.params.uid
     }
   }
 
@@ -31,13 +32,9 @@ export default class Note extends Component {
     return getUserRef().collection("notes").doc(uid || this.state.uid || this.props.match.params.uid)
   }
 
-  loadNote(props, firstRender) {
-    if(firstRender ||!this.state.uid || (this.state.uid !== props.match.params.uid)) {
-      if(this.state.newContent !== undefined) {
-        this.saveDoc({ value: this.state.newContent })
-      }
-
-      this.noteObservable = this.getNotesDoc(props.match.params.uid).onSnapshot(snapshot => {
+  componentDidUpdate(prevProps) {
+    if(prevProps.match.params.uid !== this.props.match.params.uid) {
+      this.noteObservable = this.getNotesDoc(this.props.match.params.uid).onSnapshot(snapshot => {
         let data = snapshot.data()
         if(data) {
           this.setState({
@@ -47,24 +44,6 @@ export default class Note extends Component {
         }
       })
     }
-  }
-
-  componentDidUpdate(prevProps) {
-    if(prevProps.match.params.uid !== this.props.match.params.uid) {
-      this.loadNote(this.props)
-      this.setState({
-        uid: this.props.match.params.uid,
-        note: null,
-      })
-    }
-  }
-
-  componentDidMount() {
-    this.loadNote(this.props, true)
-    this.setState({
-      uid: this.props.match.params.uid,
-      note: null,
-    })
   }
 
   componentWillUnmount() {
@@ -77,9 +56,9 @@ export default class Note extends Component {
   }
 
   saveDoc(e) {
-    this.getNotesDoc().set({
-      content: e.value
-    })
+    // this.getNotesDoc(e.uid).set({
+    //   content: e.value
+    // })
   }
 
   render() {

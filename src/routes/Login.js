@@ -20,11 +20,13 @@ export default class Login extends Component {
 
   render() {
     return (
-      <>
-        <Link to="/signup">sign up</Link>
-        <h1>Login</h1>
-        <button onClick={ e => this.handleLogin(e) }>click here to login</button>
-      </>
+      <div className="in-up login">
+        <div className="card">
+          <Link to="/signup">sign up</Link>
+          <h1>Login</h1>
+          <button className="google" onClick={ e => this.handleLogin(e) }>login with Google</button>
+        </div>
+      </div>
     )
   }
 

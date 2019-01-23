@@ -21,11 +21,16 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <>
-        <Link to="/login">login</Link>
-        <h1>Signup</h1>
-        <button onClick={ e => this.handleSignup(e) }>click here to sign up</button>
-      </>
+      <div className="in-up signup">
+        <div className="card">
+          <Link to="/login">login</Link>
+          <h1>Signup</h1>
+          <input type="text" className="email" placeholder="email"/>
+          <input type="password" className="password" placeholder="password"/>
+          <button className="submit">Submit!</button>
+          <button className="google" onClick={ e => this.handleSignup(e) }>sign up with Google</button>
+        </div>
+      </div>
     )
   }
 
