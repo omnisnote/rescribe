@@ -17,6 +17,16 @@ export default class Note extends Component {
       note: null,
       uid: props.match.params.uid,
     }
+
+    this.noteObservable = this.getNotesDoc(this.props.match.params.uid).onSnapshot(snapshot => {
+      let data = snapshot.data()
+      if(data) {
+        this.setState({
+          note: data,
+          newContent: data.content
+        })
+      }
+    })
   }
 
   static contextType = UserContext
@@ -34,6 +44,9 @@ export default class Note extends Component {
 
   componentDidUpdate(prevProps) {
     if(prevProps.match.params.uid !== this.props.match.params.uid) {
+      this.setState({
+        note: null,
+      })
       this.noteObservable = this.getNotesDoc(this.props.match.params.uid).onSnapshot(snapshot => {
         let data = snapshot.data()
         if(data) {
