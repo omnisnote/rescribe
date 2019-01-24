@@ -35,7 +35,10 @@ export default class MainEditor extends Component {
   }
 
   componentWillUnmount() {
-    this.props.onUnmount && this.props.onUnmount({ value: this.state.value })
+    this.props.onUnmount && this.props.onUnmount({ 
+      value: this.state.value, 
+      uid: this.props.uid 
+    })
   }
   
   onChange(e) {
