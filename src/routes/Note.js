@@ -36,7 +36,7 @@ export default class Note extends Component {
   static getDerivedStateFromProps(props, state) {
     return {
       note: state.note || null,
-      ready: false,
+      ready: state.ready || false,
       uid: props.match.params.uid
     }
   }
@@ -73,13 +73,12 @@ export default class Note extends Component {
   }
 
   saveDoc(e) {
+    if(this.state.uid === e.uid) return
     console.log(e)
-    this.setState({
-      ready: false,
+    console.log(this.state)
+    this.getNotesDoc(e.uid).set({
+      content: e.value
     })
-    // this.getNotesDoc(e.uid).set({
-    //   content: e.value
-    // })
   }
 
   render() {

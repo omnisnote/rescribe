@@ -15,22 +15,18 @@ export default class MainEditor extends Component {
     this.setState({
       value: this.props.defaultValue
     })
-    this.props.onUnmount && this.props.onUnmount({ 
-      value: this.state.value || "",
-      uid: this.props.uid
-    })
   }
 
   componentDidUpdate(prevProps) {
     if(this.props.defaultValue !== prevProps.defaultValue || 
        this.props.uid !== prevProps.uid) {
-      this.setState({
-        value: this.props.defaultValue
-      })
-      this.props.onUnmount && this.props.onUnmount({ 
-        value: this.state.value || "",
-        uid: prevProps.uid
-      })
+         this.props.onUnmount && this.props.onUnmount({ 
+           value: this.state.value || "",
+           uid: prevProps.uid
+          })
+          this.setState({
+            value: this.props.defaultValue
+          })
     }
   }
 
