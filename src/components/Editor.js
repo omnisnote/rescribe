@@ -24,16 +24,9 @@ export default class Editor extends Component {
     })
 
     this.state.mde.codemirror.on("change", () => {
+      //TODO: make this not bad
       this.props.onChange && this.props.onChange(this.state.mde)
     })
-  }
-
-  componentDidUpdate() {
-    if(this.props.value !== this.state.value) {
-      this.setState({
-        value: this.props.value
-      })
-    }
   }
 
   render() {

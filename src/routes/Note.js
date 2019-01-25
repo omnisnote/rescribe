@@ -71,10 +71,10 @@ export default class Note extends Component {
   saveDoc(e) {
     // console.log(e)
     // console.log(this.state)
-    // console.log("saving: " + e.value + " to: " + e.uid + " with state: " + this.state.uid)
-    this.getNotesDoc(e.uid).set({
-      content: e.value
-    })
+    console.log("saving: " + e.value + " to: " + e.uid + " with state: " + this.state.uid)
+    // this.getNotesDoc(e.uid).set({
+    //   content: e.value
+    // })
   }
 
   render() {
@@ -93,10 +93,11 @@ export default class Note extends Component {
               }) }/> 
           }
           <div className="editor">
+          { this.state.note &&
             <MainEditor 
-              defaultValue={ this.state.newContent }
-              uid={ this.props.match.params.uid }
+              note={ this.state.note }
               onFinishChange={ e => this.saveDoc(e) } />
+          }
           </div>
         </div>
       </div>

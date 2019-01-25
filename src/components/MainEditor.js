@@ -2,37 +2,17 @@ import React, { Component } from 'react'
 import Outline from "./Outline"
 import Editor from "./Editor"
 
-
 export default class MainEditor extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: props.defaultValue
+      value: props.note.content
     }
   }
 
   componentDidMount() {
     this.setState({
       value: this.props.defaultValue
-    })
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if(this.props.uid !== prevProps.uid && prevState.value !== prevProps.defaultValue) {
-      this.props.onFinishChange && this.props.onFinishChange({ 
-        value: prevState.value || "",
-        uid: prevProps.uid
-      })
-      this.setState({
-        value: this.props.defaultValue
-      })
-    }
-  }
-
-  componentWillUnmount() {
-    this.props.onFinishChange && this.props.onFinishChange({ 
-      value: this.state.value, 
-      uid: this.props.uid 
     })
   }
 
