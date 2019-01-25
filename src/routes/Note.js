@@ -15,7 +15,6 @@ export default class Note extends Component {
     super(props)
     this.state = {
       note: null,
-      uid: props.match.params.uid,
       ready: false,
     }
 
@@ -42,7 +41,7 @@ export default class Note extends Component {
   }
 
   getNotesDoc(uid) {
-    return getUserRef().collection("notes").doc(uid || this.state.uid || this.props.match.params.uid)
+    return getUserRef().collection("notes").doc(uid || this.props.match.params.uid)
   }
 
   componentDidUpdate(prevProps) {
@@ -69,16 +68,16 @@ export default class Note extends Component {
 
   getMeta() {
     //TODO: store this in state or something
-    return this.context.notes[this.state.uid]
+    return this.context.notes[this.props.match.params.uid]
   }
 
   saveDoc(e) {
-    if(this.state.uid === e.uid) return
-    console.log(e)
-    console.log(this.state)
-    this.getNotesDoc(e.uid).set({
-      content: e.value
-    })
+    // console.log(e)
+    // console.log(this.state)
+    console.log("saving: " + e.value + " to: " + e.uid + " with state: " + this.state.uid)
+    // this.getNotesDoc(e.uid).set({
+    //   content: e.value
+    // })
   }
 
   render() {
@@ -92,18 +91,16 @@ export default class Note extends Component {
               defaultValue={ (this.getMeta() || {}).title } 
               overwrite={ def => def !== (this.getMeta() || {}).title }
               placeholder="untitled note"
-              onChange={ e => setMeta(this.state.uid, {
+              onChange={ e => setMeta(this.props.match.params.uid, {
                 title: e
               }) }/> 
           }
-          { this.state.ready && this.state.note && (
-            <div className="editor">
-              <MainEditor 
-                defaultValue={ this.state.newContent }
-                uid={ this.state.uid }
-                onUnmount={ e => this.saveDoc(e) } />
-            </div>
-          ) }
+          <div className="editor">
+            <MainEditor 
+              defaultValue={ this.state.newContent }
+              uid={ this.props.match.params.uid }
+              onFinishChange={ e => this.saveDoc(e) } />
+          </div>
         </div>
       </div>
     )
