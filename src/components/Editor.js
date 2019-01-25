@@ -28,6 +28,13 @@ export default class Editor extends Component {
     })
   }
 
+  componentDidUpdate() {
+    if(this.props.value !== this.state.value) {
+      this.setState({
+        value: this.props.value
+      })
+    }
+  }
 
   render() {
     return (

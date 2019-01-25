@@ -15,7 +15,6 @@ export default class Note extends Component {
     super(props)
     this.state = {
       note: null,
-      ready: false,
     }
 
     this.noteObservable = this.getNotesDoc(this.props.match.params.uid).onSnapshot(snapshot => {
@@ -23,7 +22,6 @@ export default class Note extends Component {
       if(data) {
         this.setState({
           note: data,
-          ready: true,
           newContent: data.content
         })
       }
@@ -35,7 +33,6 @@ export default class Note extends Component {
   static getDerivedStateFromProps(props, state) {
     return {
       note: state.note || null,
-      ready: state.ready || false,
       uid: props.match.params.uid
     }
   }
@@ -47,7 +44,7 @@ export default class Note extends Component {
   componentDidUpdate(prevProps) {
     if(prevProps.match.params.uid !== this.props.match.params.uid) {
       this.setState({
-        ready: false,
+        note: null,
       })
       this.noteObservable = this.getNotesDoc(this.props.match.params.uid).onSnapshot(snapshot => {
         let data = snapshot.data()
@@ -74,10 +71,10 @@ export default class Note extends Component {
   saveDoc(e) {
     // console.log(e)
     // console.log(this.state)
-    console.log("saving: " + e.value + " to: " + e.uid + " with state: " + this.state.uid)
-    // this.getNotesDoc(e.uid).set({
-    //   content: e.value
-    // })
+    // console.log("saving: " + e.value + " to: " + e.uid + " with state: " + this.state.uid)
+    this.getNotesDoc(e.uid).set({
+      content: e.value
+    })
   }
 
   render() {

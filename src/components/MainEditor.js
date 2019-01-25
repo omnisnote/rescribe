@@ -19,8 +19,6 @@ export default class MainEditor extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(this.props.uid !== prevProps.uid && prevState.value !== prevProps.defaultValue) {
-      console.log("this.props.uid: " + this.props.uid)
-      console.log("prevProps.uid: " + prevProps.uid)
       this.props.onFinishChange && this.props.onFinishChange({ 
         value: prevState.value || "",
         uid: prevProps.uid
@@ -37,17 +35,13 @@ export default class MainEditor extends Component {
       uid: this.props.uid 
     })
   }
-  
-  onChange(e) {
-    this.setState({ value: e.value() })
-  }
 
   render() {
     return (
       <div className="main-editor">
         <Outline headings={ this.state.value ? this.state.value.split(/(#{1,6} .*)/g).filter(i => i.startsWith("#")) : [] } />
         <Editor value={ this.state.value }
-                onChange={ e => this.onChange(e) } />
+                onChange={ e => this.setState({ value: e.value() }) } />
       </div>
     )
   }
