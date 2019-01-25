@@ -6,13 +6,19 @@ export default class MainEditor extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      value: props.note.content
+      value: props.note.content,
+      uid: props.note.uid //TODO: is this bad?
     }
   }
 
-  componentDidMount() {
-    this.setState({
-      value: this.props.defaultValue
+  componentDidUpdate() {
+    
+  }
+
+  componentWillUnmount() {
+    this.props.onFinishChange && this.props.onFinishChange({
+      value: this.state.value,
+      uid: this.state.uid
     })
   }
 
