@@ -7,8 +7,9 @@
 - [ ] figure out hotkeys
 - [ ] create tag system
 - [ ] get username/password login working
-- [ ] export to md
-- [ ] export to pdf
+- [ ] logout
+- [ ] export to .md
+- [ ] export to .pdf
 - [x] create navigation system
 - [ ] create some kind of search functionality
 - [ ] make large amounts of notes work
@@ -16,6 +17,9 @@
 - [ ] offline saving / caching
 - [ ] settings
 - [ ] figure out codeblock cutoff issues
+- [ ] make note jumping
+- [ ] autosave?
+
 
 ## Stlyes
 
@@ -25,11 +29,15 @@
 - [ ] figure out the line seperations inside code blocks
 - [ ] clean up the editor buttons
 
+
 ## Brand
 
 - [ ] publish
 - [ ] figure out if the noscript stays
 - [x] make a loading thing
+- [ ] make homepage thing
+- [ ] make static stuffs
+
 
 ## Misc
 

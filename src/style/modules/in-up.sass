@@ -5,6 +5,14 @@
   display: flex
   align-items: center
   justify-content: center
+  flex-direction: column
+  .bg
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    z-index: -1
+    opacity: 0.3
   .card
     max-width: 480px
     background-color: #fff
@@ -13,21 +21,10 @@
     padding: 8px
     color: rgba(#000,0.85)
     border-radius: 8px
-    button, h1
-      text-align: center
     h1
       margin-bottom: 1.1rem
     a
       text-align: left
-    button, input
-      padding: 8px
-      border-radius: 8px
-      margin: 8px auto
-      display: block
-      font-size: 14px
-      +transition(0.2s)
-    button
-      cursor: pointer
     .submit
       background: transparent
       &:hover
@@ -37,6 +34,18 @@
       width: 80%
       &:focus
         border: 1px solid $main
-    button.google
-      background-color: #1e88e5
-      color: rgba(#fff, 0.85)
+
+  button, h1
+    text-align: center
+  button, input
+    padding: 8px
+    border-radius: 8px
+    margin: 8px auto
+    display: block
+    font-size: 14px
+    +transition(0.2s)
+  button
+    cursor: pointer
+  button.google
+    background-color: #1e88e5
+    color: rgba(#fff, 0.85)

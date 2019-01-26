@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { getUserRef } from "../firebase/db"
+import auth from "../firebase/auth"
 
 import UserContext from "../context"
 
@@ -18,11 +19,22 @@ export default class Settings extends Component {
     getUserRef().settings.set(this.state)
   }
 
+  signout() {
+    auth.signOut().then(() => {
+      //TODO: implement this
+    }, (error) => {
+
+    })
+  }
+
   render() {
     return (
       <>
         <Sidebar />
-        <div><h1>settings</h1></div>
+        <div>
+          <h1>settings</h1>
+          <button onClick={ e => this.signout() }>signout</button>
+        </div>
       </>
     )
   }
