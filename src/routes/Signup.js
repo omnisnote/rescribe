@@ -30,6 +30,7 @@ export default class Signup extends Component {
           <input type="text" className="email" placeholder="email"/>
           <input type="password" className="password" placeholder="password"/>
           <button className="submit">Submit!</button>
+          
         </div>
         <button className="google" onClick={ e => this.handleGoogleSignup(e) }>sign up with Google</button>
       </div>

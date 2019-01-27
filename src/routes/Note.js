@@ -100,5 +100,4 @@ export default class Note extends Component {
       </div>
     )
   }
-
 }
