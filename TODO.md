@@ -19,7 +19,7 @@
 - [ ] figure out codeblock cutoff issues
 - [ ] make note jumping
 - [ ] autosave?
-
+- [ ] command pallet
 
 ## Stlyes
 
