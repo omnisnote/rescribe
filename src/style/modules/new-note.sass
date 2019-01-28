@@ -1,11 +1,9 @@
 .new-note
   width: 100%
-  box-shadow: 0 6px 18px -9px rgba(0, 0, 0, 0.2)
+  box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.2)
   margin-bottom: 16px
   padding: 8px
   +transition(0.3s)
-  &:hover
-    box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.2)
   textarea
     background: transparent
     margin-bottom: 8px
@@ -13,7 +11,7 @@
     width: 64px
     height: 32px
     padding: 4px
+    border-radius: $main-radius
     background: $main
-    float: right
     i
       color: $main-bg
