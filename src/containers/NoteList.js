@@ -5,6 +5,7 @@ import UserContext from "../context"
 import { transformToArr, getUserRef, createNote } from "../firebase/db"
 
 import Loading from "../components/Loading.js"
+import NoteCard from "../components/NoteCard.js"
 
 export default class NoteList extends Component {
   static contextType = UserContext
@@ -14,11 +15,7 @@ export default class NoteList extends Component {
       <UserContext.Consumer>{ context => (
         <div className={ "note-list " + (this.props.sidebar ? "note-sidebar" : "") }>
           { context.notes ? transformToArr(context.notes).map((note, i) => (
-            <Link to={"/note/" + note.uid} key={i} className="note">
-              <div>
-                { note.title || "untitled note" }
-              </div>
-            </Link>
+            <NoteCard note={ note } key={ i } />
           )) : <Loading /> }
         </div>
       )}</UserContext.Consumer>

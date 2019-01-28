@@ -1,17 +1,12 @@
 .note-list
-  display: flex
-  flex-wrap: wrap
+  width: 95%
+  max-width: 1080px
   margin: 0 auto
-  justify-content: center
-  .note
-    padding: 8px
-    margin: 4px
-    max-width: 240px
-    max-height: 64px
-    +transition(0.1s)
-    &:hover
-      background-color: $syntax-guide
+  display: grid
+  grid-template-columns: auto auto auto
+  grid-gap: 8px
 
+  
 .note-sidebar
   width: 280px
   height: 100vh
@@ -19,5 +14,4 @@
   flex-direction: column
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.26)
   justify-content: flex-start
-  .note
-    width: 240px
+  grid-template-columns: auto
