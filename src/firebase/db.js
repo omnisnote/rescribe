@@ -42,6 +42,14 @@ const createNote = (content, title, callback) => {
   })
 }
 
+const createTag = (name, color) => {
+  return getUserRef().set({
+    name,
+  })
+}
+
+window.createTag = createTag
+
 const transformToArr = (data) => Object.entries(data).map(entry => ({ uid: entry[0], ...entry[1] }))
 
 export default db
