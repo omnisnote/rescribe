@@ -43,12 +43,13 @@ const createNote = (content, title, callback) => {
 }
 
 const createTag = (name, color) => {
-  return getUserRef().set({
-    name,
+  return getUserRef().update({
+    ["tags." + name]: {
+      name,
+      color: color || "#FFF"
+    },
   })
 }
-
-window.createTag = createTag
 
 const transformToArr = (data) => Object.entries(data).map(entry => ({ uid: entry[0], ...entry[1] }))
 
