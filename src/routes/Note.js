@@ -77,7 +77,7 @@ export default class Note extends Component {
   render() {
     return (
       <div className="note">
-        <Sidebar color="rgba(255,255,255,0.85)" size={ 36 }/>
+        <Sidebar/>
         <NoteList sidebar/>
         <div className="note-editor">
           { this.context.notes && 

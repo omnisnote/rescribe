@@ -30,7 +30,7 @@ export default class Notes extends Component {
     return (
       <UserContext.Consumer>{ context => (
         <>
-          <Sidebar color="rgba(255,255,255,0.85)" size={ 36 }/>
+          <Sidebar/>
           <NewNote />
           <NoteList />
           <button className="add" onClick={ e => this.create() }>

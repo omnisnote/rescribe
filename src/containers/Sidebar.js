@@ -15,10 +15,10 @@ class Sidebar extends Component {
   render() {
     return (
       <div className="sidebar">
-        <Link to="/"><MaterialIcon icon="apps" size={this.props.size || 36} color={this.props.color || '#fff'}/></Link>
-        <Link to="/settings"><MaterialIcon icon="settings" size={this.props.size || 36} color={this.props.color || '#fff'}/></Link>
-        <Link to="/tags"><MaterialIcon icon="label" size={this.props.size || 36} color={this.props.color || '#fff'}/></Link>
-        <a href="#" onClick={ e => this.create(e) }><MaterialIcon icon="add" size={this.props.size || 36} color={this.props.color || '#fff'}/></a>
+        <Link to="/"><MaterialIcon icon="apps" size={this.props.size || 24} color={this.props.color || '#060a0b'}/></Link>
+        <Link to="/settings"><MaterialIcon icon="settings" size={this.props.size || 24} color={this.props.color || '#060a0b'}/></Link>
+        <Link to="/tags"><MaterialIcon icon="label" size={this.props.size || 24} color={this.props.color || '#060a0b'}/></Link>
+        <a href="#" onClick={ e => this.create(e) }><MaterialIcon icon="add" size={this.props.size || 24} color={this.props.color || '#060a0b'}/></a>
       </div>
     )
   }

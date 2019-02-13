@@ -19,9 +19,6 @@ export default class NewNote extends Component {
     return (
       <div className="new-note">
         <MiniEditor placeholder="take a note" />
-        <button onClick={ e => this.create(e) } className="create">
-          <MaterialIcon icon="arrow_forward" size="24"/>
-        </button>
       </div>
     )
   }
