@@ -1,15 +1,16 @@
-$main-bg: #fff
+$main-bg-light: #fff
+$main-bg-dark: #060a0b
+
+$text-light: rgba($main-bg-dark, 0.85)
+$text-dark: rgba($main-bg-light, 0.85)
 $main: #BA86EF
 
-// Base colors -----------------------------------
-$syntax-fg:              rgba(#060a0b, 0.85)
-$syntax-gutter:          darken($main-bg , 5%)
-$syntax-guide:           darken($main-bg, 5%)
-$syntax-selection-color: darken($main-bg, 10%)
-//----------------------------------------------
+$syntax-gutter-light:   darken($main-bg-light , 5%)
+$syntax-guide-light:    darken($main-bg-light, 10%)
 
-$text-color: $syntax-fg
+$selection-color: darken($main, 10%)
 
+  
 $monospace: "Roboto Mono", monospace
 $main-font: 'Roboto', sans-serif
 

@@ -11,25 +11,26 @@
     width: 100%
     display: flex
     overflow: hidden
-    box-shadow: 3px 0 8px rgba($text-color, 0.2)
+    box-shadow: 3px 0 8px rgba($text-light, 0.2)
     input
       font-size: 24px
       background: transparent
-      color: $syntax-fg
       padding: 8px 32px
       width: 100%
     button
       +transition(0.1s)
       background: transparent
-      color: $syntax-fg
       display: flex
       align-items: center
       justify-content: flex-start
       padding: 16px
-      i
-        color: $syntax-fg
-      &:hover
-        background-color: $syntax-guide
 
   .note-sidebar
     width: 240px
+
+
+.light .note-editor 
+  input, button, i
+    color: $text-light
+  button:hover
+    background-color: $syntax-guide-light

@@ -9,7 +9,6 @@
 // converted from css to sass
 
 .CodeMirror
-  color: $syntax-fg
   width: 100%
 
 .CodeMirror-lines
@@ -19,12 +18,9 @@
   padding: 0 4px
 
 .CodeMirror-cursor
-  border-left: 1px solid $syntax-fg
+  border-left: 1px solid $main
   border-right: none
   width: 0
-
-.CodeMirror div.CodeMirror-secondarycursor
-  border-left: 1px solid $syntax-fg
 
 .cm-fat-cursor div.CodeMirror-cursors
   z-index: 1
@@ -48,15 +44,6 @@
 
 .cm-strikethrough
   text-decoration: line-through
-
-.cm-hr:after
-  content: ""
-  position: absolute
-  top: calc(50% + 1px)
-  left: 0
-  background-color: $syntax-fg
-  height: 1px
-  width: 100%
 
 .CodeMirror
   position: relative
@@ -208,24 +195,24 @@ div.CodeMirror-cursors
   visibility: visible
 
 .CodeMirror-selected, .CodeMirror-focused .CodeMirror-selected
-  background: $syntax-selection-color
+  background: $selection-color
 
 .CodeMirror-line
   &::selection
-    background: $syntax-selection-color
+    background: $selection-color
   > span
     &::selection, > span::selection
-      background: $syntax-selection-color
+      background: $selection-color
 
 .CodeMirror-crosshair
   cursor: crosshair
 
 .CodeMirror-line
   &::-moz-selection
-    background: $syntax-selection-color
+    background: $selection-color
   > span
     &::-moz-selection, > span::-moz-selection
-      background: $syntax-selection-color
+      background: $selection-color
 
 .cm-force-border
   padding-right: 0.1px
@@ -332,7 +319,7 @@ span.CodeMirror-selectedtext
 
 .CodeMirror
   .CodeMirror-selected
-    background: $syntax-selection-color
+    background: $selection-color
   .CodeMirror-code
     .cm-header-1
       font-size: 200%
@@ -347,7 +334,7 @@ span.CodeMirror-selectedtext
       font-size: 110%
       line-height: 110%
     .cm-comment
-      background-color: $syntax-selection-color
+      background-color: $selection-color
       font-family: $monospace
       display: inline-block
     .cm-link
@@ -357,7 +344,7 @@ span.CodeMirror-selectedtext
     .cm-strikethrough
       text-decoration: line-through
     .cm-quote.cm-formatting
-      border-left: 4px solid $syntax-fg
+      border-left: 4px solid $main
       padding-left: 4px
   .CodeMirror-placeholder
     opacity: 0.5
