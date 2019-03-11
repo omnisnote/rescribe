@@ -1,0 +1,14 @@
+.button
+  background-color: $main
+  color: rgba(#fff, 0.85)
+  border-radius: 8px
+  padding: 8px 16px
+  box-shadow: 0 4px 12px -4px rgba(#000, 0.2)
+  cursor: pointer
+  font-size: 16px
+  margin-top: 16px
+  +transition(0.3s)
+  &:hover
+    box-shadow: 0 6px 14px -6px rgba(#000, 0.3)
+    background-color: lighten($main, 4%)
+  

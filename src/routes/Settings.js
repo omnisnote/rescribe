@@ -31,9 +31,9 @@ export default class Settings extends Component {
     return (
       <>
         <Sidebar />
-        <div>
+        <div className="settings">
           <h1>settings</h1>
-          <button onClick={ e => this.signout() }>signout</button>
+          <button className="button" onClick={ e => this.signout() }>signout</button>
         </div>
       </>
     )

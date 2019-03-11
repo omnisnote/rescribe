@@ -19,6 +19,12 @@ const createUser = user => {
         displayName: user.displayName,
         uid: user.uid,
         email: user.email,
+        settings: {
+          theme: "light",
+          showOutline: true,
+          showNotesInEditor: true,
+          fontSize: 14,
+        }
       })
     }
   })
