@@ -55,7 +55,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <div className={"app " + (localStorage.getItem('theme') || "light")}>
         <UserContext.Provider value={ this.state.user }>
           <Router>
             <Switch>
