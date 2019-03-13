@@ -6,7 +6,7 @@ import { createUser, getUserRef } from "../firebase/db"
 
 import wave from "../assets/basic-bg.svg"
 
-export default class Login extends Component {
+export default class Auth extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,7 +29,6 @@ export default class Login extends Component {
   handleLogin = e => {
     auth.signInWithEmailAndPassword(this.emailEl.value, this.passwordEl.value).catch(err => {
       this.setState({
-        shake: true,
         err: err.message
       })
     })
@@ -37,11 +36,14 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="in-up login">
-        <img src={ wave } className="bg"/>
+      <div className="in-up">
+        <div className="bg">
+          <img src={ wave } className="wave"/>
+          <img src={ wave } className="wave"/>
+          <img src={ wave } className="wave"/>
+        </div>
         <div className="form">
-          <Link to="/signup">sign up</Link>
-          <h1>Login</h1>
+          <h1>Authenticate</h1>
           <input type="text" 
                  className="email" 
                  placeholder="email"
@@ -52,7 +54,7 @@ export default class Login extends Component {
                  ref={ el => this.passwordEl = el }/>
           <button className="submit" onClick={ e => this.handleLogin() }>Submit!</button>
           <p>{ this.state.err || " " }</p>
-          <button className="google" onClick={ e => this.handleGoogleLogin(e) }>login with Google</button>
+          <button className="google" onClick={ e => this.handleGoogleLogin(e) }>Authenticate with Google</button>
         </div>
       </div>
     )

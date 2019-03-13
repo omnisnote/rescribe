@@ -1,63 +1,72 @@
-@keyframes shake 
-  0%
-    transform: translateX(0)
-  25%
-    transform: translateX(10px)
-  75%
-    transform: translateX(-10px)
-  100%
-    transform: translateX(0)
-
 .in-up
   height: 100vh
   width: 100%
+  position: absolute
+  top: 0
+  left: 0
   overflow: hidden
   display: flex
   align-items: center
   justify-content: center
   flex-direction: column
+  background-color: $main
   .bg
     position: absolute
     bottom: 0
     left: 0
     width: 100%
-    z-index: -1
-    opacity: 0.3
-  .card
-    max-width: 480px
-    background-color: #fff
-    width: 90%
-    box-shadow: 0 8px 24px -16px #000
-    padding: 8px
-    color: rgba(#000,0.85)
-    border-radius: 8px
-    &.shake
-      animation: shake 0.2s ease-in-out
-    h1
-      margin-bottom: 1.1rem
-    a
-      text-align: left
-    .submit
-      background: transparent
-      &:hover
-        background-color: rgba($main, 0.4)
-    input
-      border: 1px solid #ddd
-      width: 80%
-      &:focus
-        border: 1px solid $main
+    height: 100%
+    .wave
+      opacity: 0.3
+      bottom: 0
+      left: 0
+      position: absolute
+      width: 100%
+.form
+  background-color: #fff
+  width: 70%
+  max-width: 720px
+  position: absolute
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  right: 0
+  top: 0
+  box-shadow: -8px 0 24px -16px #000
+  padding: 8px
+  color: rgba(#000,0.85)
+  height: 100%
+  h1
+    margin-bottom: 1.1rem
+  a.swap
+    text-align: left
+    position: absolute
+    top: 8px
+    &.login
+      left: 8px
+    &.signup
+      right: 8px
+  .submit
+    background: transparent
+    &:hover
+      background-color: rgba($main, 0.4)
+  input
+    border-bottom: 3px solid #ddd
+    width: 80%
+    &:focus
+      border-bottom: 3px solid $main
 
-  button, h1
-    text-align: center
-  button, input
-    padding: 8px
-    border-radius: 8px
-    margin: 8px auto
-    display: block
-    font-size: 14px
-    +transition(0.2s)
-  button
-    cursor: pointer
-  button.google
-    background-color: #1e88e5
-    color: rgba(#fff, 0.85)
+button, h1
+  text-align: center
+button, input
+  padding: 8px
+  margin: 8px auto
+  display: block
+  font-size: 14px
+  +transition(0.2s)
+button
+  cursor: pointer
+button.google
+  background-color: #1e88e5
+  color: rgba(#fff, 0.85)

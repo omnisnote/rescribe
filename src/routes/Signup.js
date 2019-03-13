@@ -24,15 +24,21 @@ export default class Signup extends Component {
     return (
       <div className="in-up signup">
         <img src={ wave } className="bg"/>
-        <div className="card">
-          <Link to="/login">login</Link>
-          <h1>Signup</h1>
-          <input type="text" className="email" placeholder="email"/>
-          <input type="password" className="password" placeholder="password"/>
-          <button className="submit">Submit!</button>
-          
+        <div className="form">
+          <Link to="/signup">sign up</Link>
+          <h1>Login</h1>
+          <input type="text" 
+                 className="email" 
+                 placeholder="email"
+                 ref={ el => this.emailEl = el }/>
+          <input type="password" 
+                 className="password" 
+                 placeholder="password"
+                 ref={ el => this.passwordEl = el }/>
+          <button className="submit" onClick={ e => this.handleLogin() }>Submit!</button>
+          <p>{ this.state.err || " " }</p>
+          <button className="google" onClick={ e => this.handleGoogleLogin(e) }>login with Google</button>
         </div>
-        <button className="google" onClick={ e => this.handleGoogleSignup(e) }>sign up with Google</button>
       </div>
     )
   }

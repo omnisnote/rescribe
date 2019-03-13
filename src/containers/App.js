@@ -6,8 +6,7 @@ import UserContext from "../context"
 import auth from "../firebase/auth"
 import { getUserRef } from "../firebase/db"
 
-import Signup from "../routes/Signup"
-import Login from "../routes/Login"
+import Auth from "../routes/Auth"
 import User from "../routes/User"
 import Notes from "../routes/Notes"
 import Note from '../routes/Note'
@@ -61,9 +60,8 @@ export default class App extends Component {
             <Switch>
               {/* public paths */}
               { !this.state.user.ready && ( <>
-                <Route exact path="/signup" component={ Signup }/>
-                <Route exact path="/login" component={ Login }/>
-                { this.state.user.checked && <Redirect to="/signup" /> }
+                <Route exact path="/auth" component={ Auth }/>
+                { this.state.user.checked && <Redirect to="/auth" /> }
               </> )}
               {/* authed paths */}
               { this.state.user.ready ? (
